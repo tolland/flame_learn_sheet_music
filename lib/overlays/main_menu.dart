@@ -1,17 +1,21 @@
+import 'package:flame_learn_sheet_music/bloc/keyboard/piano_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../learn_sheet_music.dart';
 
 class MainMenu extends StatelessWidget {
   // Reference to parent game.
-  final LearnSheetMusicGame game;
+  //final LearnSheetMusicGame game;
 
-  const MainMenu({super.key, required this.game});
+  //const MainMenu({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
     const blackTextColor = Color.fromRGBO(0, 0, 0, 1.0);
     const whiteTextColor = Color.fromRGBO(255, 255, 255, 1.0);
+
+    PianoBloc bloc = context.read<PianoBloc>();
 
     return Material(
       color: Colors.transparent,
@@ -42,7 +46,8 @@ class MainMenu extends StatelessWidget {
                 height: 75,
                 child: ElevatedButton(
                   onPressed: () {
-                    game.overlays.remove('MainMenu');
+                    //game.overlays.remove('MainMenu');
+                    bloc.add(PianoPause());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: whiteTextColor,

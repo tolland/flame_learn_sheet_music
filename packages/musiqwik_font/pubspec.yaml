@@ -1,0 +1,30 @@
+name: musiqwik_font
+description: >
+  A flutter package for the MusiQwik font. This package
+  includes some utilities for simplifying the use of the font in Flutter.
+version: 0.0.3
+homepage: https://github.com/tolland/flame_learn_sheet_music
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+    uses-material-design: true
+    assets:
+        - assets/
+    fonts:
+      - family: MusiQwik
+        fonts:
+          - asset: assets/fonts/MusiQwik.ttf
+          - asset: assets/fonts/MusiQwikB.ttf
+            weight: 700

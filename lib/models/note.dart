@@ -1,18 +1,23 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:equatable/equatable.dart';
+import 'package:flame_learn_sheet_music/managers/note_manager.dart';
+import 'package:flame_learn_sheet_music/models/pitch.dart';
 
-class Note {
+import 'note_value.dart';
 
-  var name;
-  var note;
-  var glyph;
-  var sound;
+class Note  extends Equatable {
+  final Pitch pitch;
+  final NoteValueLength value;
 
-  Note({
-    required this.name,
-    required this.note,
-    required this.glyph,
-    required this.sound,
-  });
+  const Note(
+      this.pitch, {
+        this.value = NoteValueLength.quarter,
+      });
 
+  Note.pitch(
+      String pitch, {
+        this.value = NoteValueLength.quarter,
+      }) : pitch = NoteManager.keys[pitch]!;
+
+  @override
+  List<Object?> get props => [pitch, value];
 }

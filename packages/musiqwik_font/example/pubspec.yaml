@@ -1,0 +1,26 @@
+name: musiqwik_font_example
+description: An Example project for Musiqwik Font package.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+  musiqwik_font:
+    path: ../
+  widgetbook: ^3.7.1
+  widgetbook_annotation: ^3.1.0
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  widgetbook_generator: ^3.7.0
+
+flutter:
+  uses-material-design: true

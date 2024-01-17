@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="robots" content="noindex,nofollow,noimageindex" />
+<meta name="author" content="Robert Allgeyer" />
+
+
+<title>Character Table for MusiQwik Font</title>
+
+<style type="text/css">
+  table {background:#000000 none; margin:20px}
+  p {margin:0px}
+  p.mar {margin:12px 0px}
+  p.music {font-family:MusiQwik,Arial,sans-serif; font-size:36px; color:#000000}
+  p.label {font-family:Arial,sans-serif; font-size:12px; text-align:center; color:#000099}
+  *.letter {color:#990000}
+  div {width:56px; height:84px; padding-top:6px; padding-bottom:6px}
+  div.font {background:#ffff99 none}
+  div.new5 {background:#ff9999 none}
+  div.nochar {background:#666666 none}
+</style>
+
+<script type="text/javascript">
+  function writeEntries() {
+    var bkg, let, charnum;
+    document.write('\u003Ctable cellspacing="1" cellpadding="0">\n');
+    for(var r=2; 16>r; r++) {
+      document.write('  \u003Ctr>\n');
+      for(var c=0; 16>c; c++) {
+        document.write('    \u003Ctd>\n');
+        let = "?";
+        bkg = "font";
+        var n = c + 16*r;
+        if(n==128) n = 8364;
+        if(n==130) n = 8218;
+        if(n==131) n = 402;
+        if(n==132) n = 8222;
+        if(n==133) n = 8230;
+        if(n==134) n = 8224;
+        if(n==135) n = 8225;
+        if(n==136) n = 710;
+        if(n==137) n = 8240;
+        if(n==138) n = 352;
+        if(n==139) n = 8249;
+        if(n==140) n = 338;
+        if(n==142) n = 381;
+        if(n==145) n = 8216;
+        if(n==146) n = 8217;
+        if(n==147) n = 8220;
+        if(n==148) n = 8221;
+        if(n==149) n = 8226;
+        if(n==150) n = 8211;
+        if(n==151) n = 8212;
+        if(n==152) n = 732;
+        if(n==153) n = 8482;
+        if(n==154) n = 353;
+        if(n==155) n = 8250;
+        if(n==156) n = 339;
+        if(n==158) n = 382;
+        if(n==159) n = 376;
+        charnum = '\u0026#' + n + ';';
+        if((32>n)||(n==127)||(n==129)||(n==141)||(n==143)||(n==144)||(n==157)||(n==173)) {
+          bkg = "nochar";
+          let = '\u0026nbsp;';
+          charnum = '\u0026nbsp;';
+        }
+        if(n>255) {
+          bkg = "new5";
+        }
+        if(charnum != '\u0026nbsp;') let = String.fromCharCode(n);
+        document.write('      \u003Cdiv class="' + bkg + '">\n');
+        document.write('        \u003Cp class="music">\u0026nbsp;' + charnum + '\u0026nbsp;\u003C\/p>\n');
+        document.write('        \u003Cp class="label">\u003Cspan class="letter">' + let + '\u003C\/span>'
+          + '\u0026nbsp; \u0026nbsp;' + n + '\u003C\/p>\n');
+        document.write('      \u003C\/div>\n');
+      }
+      document.write('  \u003C\/tr>\n');
+    }
+    document.write('\u003C\/table>\n');
+  }
+</script>
+
+</head>
+<body>
+
+<h2>Character Table for MusiQwik Font (version 5.002)</h2>
+
+<p class="mar">You must have MusiQwik installed to see the musical symbols. Without MusiQwik, the cells will show only plain text.</p>
+
+<p class="mar">Each cell contains a MusiQwik symbol at size 36px. The symbols are padded by spaces in this table, so if you copy and paste, you will have unexpected extra space. Underneath, in red, is the alphanumeric character (from the Arial font). In blue is the decimal character code. Note that in the middle of the table, some of the decimal codes are not in numerical order: this is a Unicode thing.</p>
+
+<p class="mar">Darkened cells have no symbol. These code locations cannot be used, for technical reasons.</p>
+
+<p class="mar">Cells with pink background have symbols added in font version 5, but not present in earlier versions. For better compatibility with some programs, the character formerly at code location 173 (hex 00AD) was moved to location 8364 (hex 20AC, the Euro symbol) in version 5.002.</p>
+
+<p class="mar"><strong>MusiQwik</strong> includes eighth notes (quavers), but not sixteenth notes (semiquavers). <strong>MusiQwikB</strong> ("bold") is not actually a bold font, but it replaces the eighth notes (quavers) with sixteenth notes (semiquavers). In your word processor, invoke MusiQwikB either by font name "MusiQwik Bold" or by using the Bold attribute. Of course, you must have the font file installed.</p>
+
+<p class="mar">Code 32 (character code number) is the ordinary space. Code 160 is the non-breaking space. Code 61 is a section of plain staff lines. Code 45 is a very thin section of staff lines, useful if you need to micro-align things.</p>
+
+<p class="mar">Codes 35, 36, 37, 42, 43, 44, 223, and 239 are slurs. These overhang one or more following characters. Codes 62 and 63 are fematas, which overhang the following character.</p>
+
+<p class="mar">In this table, columns organize notes according to staff position (pitch). If you use a character map program, it probably will not display the characters in this layout. Accidentals (codes 208-222, 224-238, 240-254) and dots (codes 176-191) should be coordinated with the notes they modify.</p>
+
+<p class="mar">For typographic reasons, the font cannot include characters that extend above or below a certain height from the font baseline. Thus, notes that extend too much above or below the main staff lines cannot be included. Generally, notes are depicted from 2 ledger lines below the staff, up to 1 ledger line above the staff. If you need to go lower or higher, have a look at the characters between codes 127 and 160. These characters are displaced upwards or downwards. If you insert them in a staff, you can tweak the vertical character position so that they align with the surrounding staff. (Vertical tweaking cannot be done in a plain text editor.)</p>
+
+<p class="mar">When you use MusiQwik, you may find that consecutive lines overlap a bit. If so, you can either increase the line spacing, or insert dummy lines in an ordinary font.</p>
+
+
+
+<div><script type="text/javascript">writeEntries();</script></div>
+
+
+</body>
+</html>

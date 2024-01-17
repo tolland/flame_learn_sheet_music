@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/game_stats/game_stats_bloc.dart';
+import '../game.dart';
 import '../learn_sheet_music.dart';
 
-class GameOver extends StatelessWidget {
+class GameOverMenu extends StatelessWidget {
   // Reference to parent game.
   final LearnSheetMusicGame game;
-  const GameOver({super.key, required this.game});
+  const GameOverMenu({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +44,9 @@ class GameOver extends StatelessWidget {
                 height: 75,
                 child: ElevatedButton(
                   onPressed: () {
-                    game.reset();
-                    game.overlays.remove('GameOver');
+                    // game.reset();
+                    game.overlays.remove(GameView.gameOverMenu);
+                    context.read<GameStatsBloc>().add(GameReset());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: whiteTextColor,
