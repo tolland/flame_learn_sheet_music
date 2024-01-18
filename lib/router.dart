@@ -21,7 +21,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const MainMenuScreen(key: Key('main.dart menu')),
+      builder: (context, state) => const MainMenuScreen(key: Key('virtual_piano.dart menu')),
       routes: [
         GoRoute(
             path: 'play',

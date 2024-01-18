@@ -37,7 +37,7 @@ android {
     }
 
     sourceSets {
-        main.java.srcDirs += 'src/main.dart/kotlin'
+        main.java.srcDirs += 'src/virtual_piano.dart/kotlin'
     }
 
     defaultConfig {

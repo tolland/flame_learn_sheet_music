@@ -6,7 +6,6 @@ class Example3 extends StatelessWidget {
 
   final double customFontSize;
 
-
   @override
   Widget build(BuildContext context) {
     return RichText(
@@ -28,7 +27,7 @@ class Example3 extends StatelessWidget {
           MusiQwik.trB4qrt,
           MusiQwik.trC5qrt,
           MusiQwik.barEnd,
-        ].map((obj) => obj.span(customFontSize)).toList(),
+        ].map((obj) => obj.span(fontSize: customFontSize)).toList(),
       ),
     );
   }

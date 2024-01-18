@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 enum MusicQwikCategory {
@@ -11,8 +12,8 @@ enum MusicQwikCategory {
 
 enum MusiQwik {
   // clefs
-  trebleClef('=&=', category: MusicQwikCategory.clef),
-  bassClef('=\u00af=', category: MusicQwikCategory.clef),
+  trebleClef('&', category: MusicQwikCategory.clef),
+  bassClef('\u00af', category: MusicQwikCategory.clef),
   // time signatures
   commonTime('0=', category: MusicQwikCategory.time),
   twoTwoTime('1=', category: MusicQwikCategory.time),
@@ -36,7 +37,7 @@ enum MusiQwik {
   // Rests
   wholeRest('=<='),
   halfRest('=;='),
-  qrtRest('=:='),
+  qrtRest(':'),
   eigRest('=9='),
   sxtRest('=8='),
   // quarter notes in treble clef
@@ -55,25 +56,28 @@ enum MusiQwik {
   trF5qrt('\\'),
   trG5qrt(']'),
   trA5qrt('^'),
+  trB5qrt('\u2030'),
+  trC6qrt('\u0160'),
   // eighth notes in treble clef
-  trC2eig('@'),
-  trD2eig('A'),
-  trE2eig('B'),
-  trF2eig('C'),
-  trG2eig('D'),
-  trA2eig('E'),
-  trB2eig('F'),
-  trC3eig('G'),
-  trD3eig('H'),
-  trE3eig('I'),
-  trF3eig('J'),
-  trG3eig('K'),
-  trA3eig('L'),
-  trB3eig('M'),
-  trC4eig('N'),
+  baC2eig('@'),
+  baD2eig('A'),
+  baE2eig('B'),
+  baF2eig('C'),
+  baG2eig('D'),
+  baA2eig('E'),
+  baB2eig('F'),
+  baC3eig('G'),
+  baD3eig('H'),
+  baE3eig('I'),
+  baF3eig('J'),
+  baG3eig('K'),
+  baA3eig('L'),
+  baB3eig('M'),
+  baC4eig('N'),
   // something wrong with the base of the font of these 2
-  // trD4eig('\u201e'),
-  // trE4eig('\u2026'),
+  // see the fixed font with the correct baseline
+  trD4eig('\u201e'),
+  trE4eig('\u2026'),
 
   // sixteenth notes in treble clef
   trA2sxt('@', fontWeight: FontWeight.bold),
@@ -88,18 +92,17 @@ enum MusiQwik {
   trDSharp4qrt('\u00d3S='),
   trCSharp5qrt('\u00d2Y='),
 
-
   // notes in bass clef
-  baC2qrt('=P='),
+  baC2qrt('P'),
   baCSharp2qrt('\u00d0P='),
-  baD2qrt('=Q='),
+  baD2qrt('Q'),
   baDSharp2qrt('\u00d2Q='),
-  baE2qrt('=R='),
-  baF2qrt('=S='),
+  baE2qrt('R'),
+  baF2qrt('S'),
   baFSharp2qrt('\u00d2S='),
-  baG2qrt('=T='),
+  baG2qrt('T'),
   baGSharp2qrt('\u00d2T='),
-  baA2qrt('=U='),
+  baA2qrt('U'),
   ;
 
   /// The default font size for the [MusiQwik] font.
@@ -118,7 +121,11 @@ enum MusiQwik {
     this.category = MusicQwikCategory.note,
   });
 
-  TextSpan span([double fontSize = _fontSize]) {
+  TextSpan span({
+    double fontSize = _fontSize,
+    GestureRecognizer? recognizer,
+    Function(PointerEnterEvent)? onEnter,
+  }) {
     return TextSpan(
       text: chars,
       style: TextStyle(
@@ -127,6 +134,8 @@ enum MusiQwik {
         fontWeight: fontWeight,
         fontSize: fontSize,
       ),
+      recognizer: recognizer,
+      onEnter: onEnter,
     );
   }
 }

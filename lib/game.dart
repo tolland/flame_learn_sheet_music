@@ -56,7 +56,7 @@ class GameScreen extends StatelessWidget {
   }
 }
 
-/// The main.dart game view. this is really just here to allow
+/// The virtual_piano.dart game view. this is really just here to allow
 /// the game to be wrapped in a [MultiBlocProvider].
 class GameView extends StatelessWidget {
   static final _log = Logger('GameView');

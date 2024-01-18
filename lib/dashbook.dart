@@ -6,6 +6,7 @@ import 'package:dashbook/dashbook.dart';
 import 'components/note_spawner.dart';
 import 'components/note_system.dart';
 
+import 'package:music_score/music_score.dart';
 import 'package:note_sequence/note_sequence.dart';
 
 
@@ -149,39 +150,52 @@ void main() {
     var score = Score(
       title: "My Score",
       description: "A score for testing",
+      initialBeats: 4,
+      initialBeatType: 4,
+      initialDpq: 4,
     );
 
-    score.parts.clear();
-    var pianoPart = score.addPart(Part.piano());
+    var pianoPart = score.addPart(
+      name: "Piano",
+      description: "A piano part",
+    );
 
-    var measure1 = pianoPart.addMeasure(Measure());
-    measure1.currentStaff = Clef.treble;
 
-    measure1.addNote(
+    Staff trebleStaff = pianoPart.addStaff(
+      clef: Clef.treble,
+    );
+    Staff bassStaff = pianoPart.addStaff(
+      clef: Clef.bass,
+    );
+
+    var measure1 = score.addMeasure();
+    score.currentMeasure = measure1;
+
+    score.addNote(
       pitch: Util.fromSpn("C4"),
       duration: NoteDuration.quarter,
     );
-    measure1.addNote(
+    score.addNote(
       pitch: Util.fromSpn("D4"),
       duration: NoteDuration.quarter,
     );
-    measure1.addNote(
+    score.addNote(
       pitch: Util.fromSpn("E4"),
       duration: NoteDuration.quarter,
     );
-    measure1.addNote(
+    score.addNote(
       pitch: Util.fromSpn("F4"),
       duration: NoteDuration.quarter,
     );
 
-    var measure2 = pianoPart.addMeasure(Measure());
-    measure2.currentStaff = Clef.treble;
+    var measure2 = score.addMeasure();
+    score.currentStaff = trebleStaff;
 
-    measure1.addNote(
+    score.addNote(
       pitch: Util.fromSpn("C4"),
       duration: NoteDuration.quarter,
     );
-    measure1.addNote(
+    score.addNote(
       pitch: Util.fromSpn("D4"),
       duration: NoteDuration.quarter,
     );

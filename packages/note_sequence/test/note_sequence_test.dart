@@ -1,12 +1,4 @@
-import 'package:note_sequence/model/clef.dart';
-import 'package:note_sequence/model/duration.dart';
-import 'package:note_sequence/model/measure.dart';
-import 'package:note_sequence/model/note.dart';
-import 'package:note_sequence/model/part.dart';
-import 'package:note_sequence/model/pitch_class.dart';
-import 'package:note_sequence/model/score.dart';
-import 'package:note_sequence/model/staff.dart';
-import 'package:note_sequence/utils/util.dart';
+import 'package:note_sequence/note_sequence.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -15,22 +7,50 @@ void main() {
       var score = Score(
         title: "My Score",
         description: "A score for testing",
+        initialBeats: 4,
+        initialBeatType: 4,
+        initialDpq: 4,
       );
 
-      expect(score.parts.length, 1);
-      expect(score.parts[0].staves.length, 1);
+      expect(score.validate(), isTrue);
+      expect(score.parts, isEmpty);
+      expect(score.bars, isEmpty);
+      expect(score.measures, isEmpty);
+      expect(score.description, isNotEmpty);
+      expect(score.title, isNotEmpty);
     });
 
     test('score with 2 parts, voice and piano', () {
       var score = Score(
         title: "My Score",
         description: "A score for testing",
+        initialBeats: 4,
+        initialBeatType: 4,
+        initialDpq: 4,
       );
 
-      score.parts.clear();
-      var voicePart = score.addPart(Part.voice());
-      var pianoPart = score.addPart(Part.piano());
+      var voicePart = score.addPart(
+        name: "Voice",
+        description: "A voice part",
+      );
 
+      Staff voiceTrebleStaff = voicePart.addStaff(
+        clef: Clef.treble,
+      );
+
+      var pianoPart = score.addPart(
+        name: "Piano",
+        description: "A piano part",
+      );
+
+      Staff trebleStaff = pianoPart.addStaff(
+        clef: Clef.treble,
+      );
+      Staff bassStaff = pianoPart.addStaff(
+        clef: Clef.bass,
+      );
+
+      //expect(score.validate(), isTrue);
       expect(score.parts.length, 2);
       expect(score.parts[0].staves.length, 1);
       expect(score.parts[1].staves.length, 2);
@@ -40,56 +60,83 @@ void main() {
 
     test('create a  score and add some stuff', () {
       var score = Score(
-        title: "My Score",
+        title: "MyScore",
         description: "A score for testing",
+        initialBeats: 4,
+        initialBeatType: 4,
+        initialDpq: 4,
       );
 
-      var part1 = score.addPart(Part(
-        name: "Part 1 - Piano",
+      var part1 = score.addPart(
+        name: "Part#1-Piano",
         description: "A part for testing",
-      ));
+      );
 
-      part1.staves.clear();
+      //part1.staves.clear();
 
-      var staff1 = part1.addStaff(Staff(
+      var trebleStaff = part1.addStaff(
         clef: Clef.treble,
-      ));
+      );
 
-      var staff2 = part1.addStaff(Staff(
+      var bassStaff = part1.addStaff(
         clef: Clef.bass,
-      ));
+      );
 
-      var measure1 = part1.addMeasure(Measure());
+      var measure1 = score.addMeasure();
 
-      measure1.addNote(
+      score.currentPart = part1;
+      score.currentStaff = trebleStaff;
+
+      score.addNote(
         pitch: Util.fromSpn("C4"),
         duration: NoteDuration.quarter,
-        clef: Clef.treble,
       );
-      measure1.addNote(
+      score.addNote(
         pitch: Util.fromSpn("D4"),
         duration: NoteDuration.quarter,
       );
-      measure1.addNote(
+      score.addNote(
         pitch: Util.fromSpn("E4"),
         duration: NoteDuration.quarter,
       );
-      measure1.addNote(
+      score.addNote(
         pitch: Util.fromSpn("F4"),
+        duration: NoteDuration.quarter,
+      );
+
+      var measure2 = score.addMeasure();
+
+      score.addNote(
+        pitch: Util.fromSpn("C4"),
+        duration: NoteDuration.quarter,
+      );
+
+      score.currentStaff = bassStaff;
+
+      score.addNote(
+        pitch: Util.fromSpn("C4"),
         duration: NoteDuration.quarter,
       );
 
       print(score);
 
+      //expect(score.validate(), isTrue);
+
       expect(score.description, isNotNull);
       expect(score.parts[0], isNotNull);
-      expect(score.parts[1], isNotNull);
-      expect(score.parts[1].measures, isNotNull);
-      expect(score.parts[1].measures[0], isNotNull);
-      expect(score.parts[1].measures[0].staves, isNotNull);
-      expect(score.parts[1].measures[0].staves.length, 2);
-      expect(staff1.clef, equals(Clef.treble));
-      expect(staff2.clef, equals(Clef.bass));
+      expect(score.parts.length, 1);
+      expect(score.parts[0].staves.length, 2);
+      //expect(score.parts[0].staves[0].notes, isNotEmpty);
+      //print("score notes length is ${score.notes.length}");
+      //print(score.parts[0].staves[0].notes.length);
+      //print(score.parts[0].staves[1].notes.length);
+      // expect(
+      //     score.notes.length,
+      //     score.parts[0].staves[0].notes.length +
+      //         score.parts[0].staves[1].notes.length);
+      //expect(score.parts[1].measures[0].staves.length, 2);
+      expect(trebleStaff.clef, equals(Clef.treble));
+      expect(bassStaff.clef, equals(Clef.bass));
     });
 
     // test('create a part', () {

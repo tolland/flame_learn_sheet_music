@@ -1,6 +1,3 @@
 
-
-
-export 'model/models.dart';
-export 'utils/util.dart';
-export 'widgets/widgets.dart';
+export 'src/model/models.dart';
+export 'src/utils/util.dart';

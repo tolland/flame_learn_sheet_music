@@ -1,5 +1,8 @@
 # MusiQwik font package
 
+[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
+
+
 A flutter package redistributing the MusiQwik font.
 
 The MusiQwik font is a music notation font that was created by Robert Allgeyer
@@ -7,10 +10,11 @@ around 2001. This package redistributes the font under the conditions of the
 SIL Open Font License, with some added convenience utilities to simplify its 
 use in flutter.
 
-The font is good for creating simple music notation. However, it is not much
-good for creating complex music notation such as chords and beamed notes. Though
-you might be able to achieve something like that with stacking items on top 
-of each other (but I didn't try that).
+The font is good for creating simple music notation such as scales and
+rhythms. However, as a font it lacks features creating complex music 
+notation such as chords and beamed notes. 
+
+## Glyphs
 
 ![Using utility TextSpans](https://github.com/tolland/flame_learn_sheet_music/raw/main/packages/musiqwik_font/doc/img/readme-04.png)
 

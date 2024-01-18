@@ -1,3 +1,12 @@
+## 0.0.5
+
+* Fixed several of the glyphs that had offset baselines
+
+## 0.0.4
+
+* Updates to fix analysis warnings from pub.dev
+* Add screenshots to README.md
+
 ## 0.0.3
 
 * Updates to fix analysis warnings from pub.dev

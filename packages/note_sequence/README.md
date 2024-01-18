@@ -1,6 +1,13 @@
 # note_sequence
 
-A new Flutter project.
+A representation of a musical score or part as a stream of quantized notes.
+
+This project was inspired by
+
+* <https://pub.dev/packages/music_xml/example>
+* <https://magenta.tensorflow.org/get-started/>
+
+The data model follows the MusicXML standard as closely as possible.
 
 ## Getting Started
 

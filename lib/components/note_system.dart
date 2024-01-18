@@ -80,7 +80,7 @@ class NoteSystem extends RectangleComponent
     super.update(dt);
 
     if (absolutePosition.x > 0) {
-      _log.fine(() => "moving the note spawner");
+      //_log.fine(() => "moving the note spawner");
       position.x += dt * -150;
       //removeFromParent();
     }

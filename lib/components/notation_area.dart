@@ -10,6 +10,8 @@ import '../bloc/game_stats/game_stats_bloc.dart';
 import '../learn_sheet_music.dart';
 import 'note_spawner.dart';
 
+// mixin FlameBlocListenable<B extends BlocBase<S>, S> on Component {
+
 class NotationArea extends RectangleComponent
     with
         HasGameReference<LearnSheetMusicGame>,
@@ -27,6 +29,8 @@ class NotationArea extends RectangleComponent
     _log.finer(() => "${hashCode} - creating NotationArea");
     //paint.color = Color(0x88ff0000);
   }
+
+
 
   late NoteSpawner noteSpawner;
 

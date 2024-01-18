@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 /// A widget that makes it easy to create a screen with a square-ish
-/// main.dart area, a smaller menu area, and a small area for a message on top.
+/// virtual_piano.dart area, a smaller menu area, and a small area for a message on top.
 /// It works in both orientations on mobile- and tablet-sized screens.
 class ResponsiveScreen extends StatelessWidget {
   /// This is the "hero" of the screen. It's more or less square, and will

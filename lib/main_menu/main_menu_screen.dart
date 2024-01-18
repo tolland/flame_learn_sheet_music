@@ -22,7 +22,7 @@ class MainMenuScreen extends StatelessWidget {
     final settingsController = context.read<SettingsController>();
     final audioController = context.read<AudioController>();
 
-    _log.finer(() => "$hashCode - calling build in main.dart menu screen");
+    _log.finer(() => "$hashCode - calling build in virtual_piano.dart menu screen");
 
     return Scaffold(
       backgroundColor: palette.backgroundMain.color,

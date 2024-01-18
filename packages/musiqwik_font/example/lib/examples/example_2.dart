@@ -30,7 +30,7 @@ class Example2 extends StatelessWidget {
             MusiQwik.trG4qrt,
             MusiQwik.spacer,
             MusiQwik.barEnd,
-          ].map((obj) => obj.span(customFontSize)).toList(),
+          ].map((obj) => obj.span(fontSize: customFontSize)).toList(),
         ),
       ),
     );
