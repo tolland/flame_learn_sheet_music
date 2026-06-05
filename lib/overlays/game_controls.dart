@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 import '../bloc/keyboard/piano_bloc.dart';
-import '../learn_sheet_music.dart';
+import '../game/learn_sheet_music.dart';
 
 class GameControls extends StatelessWidget {
   const GameControls(this.game, {super.key});

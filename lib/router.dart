@@ -1,21 +1,15 @@
-// Copyright 2023, the Flutter project authors. Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'game.dart';
-import 'game_internals/score.dart';
+import 'game/score.dart';
 import 'level_selection/level_selection_screen.dart';
 import 'level_selection/levels.dart';
 import 'main_menu/main_menu_screen.dart';
-import 'play_session/play_session_screen.dart';
 import 'settings/settings_screen.dart';
 import 'style/my_transition.dart';
 import 'style/palette.dart';
-import 'win_game/win_game_screen.dart';
 
 final router = GoRouter(
   routes: [
@@ -36,7 +30,6 @@ final router = GoRouter(
               GoRoute(
                 path: 'session/:level',
                 pageBuilder: (context, state) {
-                  print("in the pagebuilder for the session/:level");
                   final levelNumber = int.parse(state.pathParameters['level']!);
                   final level =
                       gameLevels.singleWhere((e) => e.number == levelNumber);

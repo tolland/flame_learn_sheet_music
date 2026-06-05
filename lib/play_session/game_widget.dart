@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../audio/audio_controller.dart';
 import '../audio/sounds.dart';
-import '../game_internals/level_state.dart';
+import '../game/level_state.dart';
 import '../level_selection/game_level.dart';
 import '../level_selection/levels.dart';
 

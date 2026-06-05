@@ -7,6 +7,7 @@ extension NumberParsing on String {
     return int.parse(this);
   }
 
+  /// truncate the sting from char i to char j (or string end)
   String tr(int i, [int j = 0]) {
     int start = min(i, j);
     int end = max(i, j);

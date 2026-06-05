@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/game_stats/game_stats_bloc.dart';
 import '../game.dart';
-import '../learn_sheet_music.dart';
+import '../game/learn_sheet_music.dart';
 
 class GameOverMenu extends StatelessWidget {
   // Reference to parent game.

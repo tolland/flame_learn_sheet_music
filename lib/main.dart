@@ -1,70 +1,23 @@
-import 'package:ansi_codes/ansi_codes.dart';
 import 'package:flame/flame.dart';
-import 'package:flame/game.dart';
-import 'package:flame_learn_sheet_music/game.dart';
 import 'package:flame_learn_sheet_music/player_progress/player_progress.dart';
 import 'package:flame_learn_sheet_music/router.dart';
 import 'package:flame_learn_sheet_music/settings/settings.dart';
 import 'package:flame_learn_sheet_music/style/palette.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
-import 'package:flutter/services.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:provider/provider.dart';
-
-import 'dart:developer' as dev;
+import 'package:sound_service_util/main.dart';
 
 import 'app_lifecycle/app_lifecycle.dart';
 import 'audio/audio_controller.dart';
 import 'bloc/bloc_observers.dart';
 
-import 'package:util/main.dart' as util;
-
-void _setupLogging() {
-  Logger.root.level = kDebugMode ? Level.FINE : Level.INFO;
-  Logger.root.onRecord.listen((record) {
-    // dev.log(
-    //   '${record.time}: ${record.message}',
-    //   time: record.time,
-    //   level: record.level.value,
-    //   name: record.loggerName,
-    // );
-
-    var openstring = '';
-    var closestring = '';
-    switch (record.level) {
-      case Level.SEVERE:
-        openstring = ansiCodes.red.open;
-        closestring = ansiCodes.red.close;
-        break;
-      case Level.WARNING:
-        openstring = ansiCodes.yellow.open;
-        closestring = ansiCodes.yellow.close;
-        break;
-      case Level.INFO:
-        openstring = ansiCodes.blue.open;
-        closestring = ansiCodes.blue.close;
-        break;
-      default:
-        openstring = ansiCodes.green.open;
-        closestring = ansiCodes.green.close;
-        break;
-    }
-
-    print(
-        '${ansiCodes.grey.open}[${record.loggerName.substring(0, record.loggerName.length > 16 ? 16 : record.loggerName.length).padRight(16)}]${ansiCodes.grey.close} ${openstring}${record.level.name.padRight(7)}:${closestring} ${record.message} ');
-  });
-}
-
 void main() async {
-  //logger.d('Log message with 2 methods');
-
-  // Basic logging setup.
-  // util.setupLogging();
-  _setupLogging();
+  Utils.setupLogging();
 
   WidgetsFlutterBinding.ensureInitialized();
   // Put game into full screen mode on mobile devices.
@@ -78,6 +31,7 @@ void main() async {
   await Flame.device.setLandscape();
   await Flame.device.fullScreen();
 
+  // this is to give some global event logging for bloc
   Bloc.observer = CounterObserver();
 
   runApp(const MyApp());

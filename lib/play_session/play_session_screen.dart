@@ -1,7 +1,3 @@
-// Copyright 2022, the Flutter project authors. Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -11,8 +7,8 @@ import 'package:provider/provider.dart';
 
 import '../audio/audio_controller.dart';
 import '../audio/sounds.dart';
-import '../game_internals/level_state.dart';
-import '../game_internals/score.dart';
+import '../game/level_state.dart';
+import '../game/score.dart';
 import '../level_selection/game_level.dart';
 import '../level_selection/levels.dart';
 import '../player_progress/player_progress.dart';

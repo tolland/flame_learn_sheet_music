@@ -1,0 +1,43 @@
+name: audio_soundpool
+description: "A bloc wrapper for playing audio files using soundpool."
+version: 0.0.1
+homepage: https://github.com/tolland/audio_soundpool
+
+environment:
+  sdk: '>=3.2.5 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  bloc: ^8.1.2
+  bloc_test: ^9.1.5
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  logging: ^1.2.0
+  mockito: ^5.4.4
+  synchronized: ^3.1.0+1
+  sound_service:
+    path: ../sound_service
+  soundpool:
+    path: /home/tomhodder/git/flutter/soundpool/soundpool
+  soundpool_web:
+    path: /home/tomhodder/git/flutter/soundpool/soundpool_web
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.8
+  freezed: ^2.4.6
+  json_serializable: ^6.7.1
+
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/notes/
+    - sounds/

@@ -5,11 +5,13 @@ import 'package:piano_widget/piano_widget.dart';
 import 'package:virtual_piano/virtual_piano.dart';
 
 import '../bloc/keyboard/piano_bloc.dart';
-import '../learn_sheet_music.dart';
-import '../managers/note_manager.dart';
+import '../game/learn_sheet_music.dart';
+import '../game/managers/note_manager.dart';
 
 class VirtualKeyboard extends StatelessWidget {
   static final _log = Logger('VirtualKeyboard');
+
+  const VirtualKeyboard({super.key});
   // const VirtualKeyboard({
   //   Key? key,
   //   required this.game,

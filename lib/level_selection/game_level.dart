@@ -1,4 +1,4 @@
-import '../models/note.dart';
+import '../game/models/note.dart';
 
 class GameLevel {
 

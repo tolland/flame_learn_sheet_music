@@ -3,7 +3,7 @@ import 'package:flame_learn_sheet_music/level_selection/game_level.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 
-import '../../models/note.dart';
+import '../../game/models/note.dart';
 
 part 'game_stats_event.dart';
 

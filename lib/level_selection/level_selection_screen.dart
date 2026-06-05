@@ -1,6 +1,3 @@
-// Copyright 2022, the Flutter project authors. Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -53,7 +50,7 @@ class LevelSelectionScreen extends StatelessWidget {
                             .go('/play/session/${level.number}');
                       },
                       leading: Text(level.number.toString()),
-                      title: Text('${level.description}'),
+                      title: Text(level.description),
                     )
                 ],
               ),

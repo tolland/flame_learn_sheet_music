@@ -3,26 +3,31 @@ import 'package:flutter/material.dart';
 
 import 'package:dashbook/dashbook.dart';
 
-import 'components/note_spawner.dart';
-import 'components/note_system.dart';
+import 'game/components/examples.dart';
+import 'game/components/note_system.dart';
 
 import 'package:music_score/music_score.dart';
 import 'package:note_sequence/note_sequence.dart';
+
+import 'game/components/note_system_example.dart';
 
 
 void main() {
   final dashbook = Dashbook(
     autoPinStoriesOnLargeScreen: true,
     usePreviewSafeArea: true,
+    title: "fuck off",
   );
 
-  dashbook.storiesOf('Notation').decorator(CenterDecorator()).add('Note System',
-      (ctx) {
-    return GameWidget(game: NoteSystemExample(
+  addComponentsStories(dashbook);
 
-        pickNotes: ctx.listProperty('Label', 'first', ['first', 'second', 'Other label'])
-    ));
-  });
+  // dashbook.storiesOf('Notation').decorator(CenterDecorator()).add('Note System',
+  //     (ctx) {
+  //   return GameWidget(game: NoteSystemExample(
+  //
+  //       pickNotes: ctx.listProperty('Label', 'first', ['first', 'second', 'Other label'])
+  //   ));
+  // });
 
   // dashbook
   //     .storiesOf('midi player')

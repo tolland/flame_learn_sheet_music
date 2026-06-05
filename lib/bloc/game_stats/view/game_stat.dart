@@ -1,8 +1,12 @@
+import 'package:logging/logging.dart';
+
 import '../game_stats_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameStat extends StatelessWidget {
+  static final _log = Logger('GameStat');
+
   const GameStat({super.key});
 
   @override
@@ -35,7 +39,7 @@ class GameStat extends StatelessWidget {
           current.status == GameStatus.gameOver,
       listener: (context, state) {
         //final bloc = context.read<GameStatsBloc>();
-        print("called listener in block consumer");
+        _log.finer("called listener in block consumer");
         // showDialog<void>(
         //   context: context,
         //   builder: (context) {

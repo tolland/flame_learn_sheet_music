@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../models/note.dart';
+import '../game/models/note.dart';
 import 'game_level.dart';
 
 var messages = [

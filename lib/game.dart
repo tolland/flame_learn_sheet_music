@@ -8,7 +8,7 @@ import 'package:nes_ui/nes_ui.dart';
 import 'bloc/game_stats/game_stats_bloc.dart';
 import 'bloc/game_stats/view/game_stat.dart';
 import 'bloc/keyboard/piano_bloc.dart';
-import 'learn_sheet_music.dart';
+import 'game/learn_sheet_music.dart';
 import 'level_selection/game_level.dart';
 import 'overlays/game_controls.dart';
 import 'overlays/overlays.dart';
@@ -25,7 +25,7 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _log.finer(() => "${hashCode} - calling build in game screen");
+    _log.finer(() => "$hashCode - calling build in game screen");
     return Scaffold(
       body: MultiBlocProvider(
         providers: [
@@ -68,14 +68,14 @@ class GameView extends StatelessWidget {
 
   final GameLevel gameLevel;
 
-  static const String backButtonKeyOverlay = 'back_buttton';
+  static const String backButtonKeyOverlay = 'back_button';
   static const String virtualKeyboardOverlay = 'virtual_keyboard';
   static const String prestartMenu = 'prestart_menu';
   static const String gameOverMenu = 'game_over_menu';
 
   @override
   Widget build(BuildContext context) {
-    _log.finer(() => "${hashCode} - calling build in game view");
+    _log.finer(() => "$hashCode - calling build in game view");
     return GameWidget.controlled(
       gameFactory: () => LearnSheetMusicGame(
         pianoBloc: context.read<PianoBloc>(),

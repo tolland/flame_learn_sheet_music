@@ -119,6 +119,24 @@ class _MyKeyWidgetState extends State<MyKeyWidget> {
             bottomRight: Radius.circular(5),
           ),
         ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0.50 * widget.height, // 3/4 down the container's height
+              //left: widget.width/2, // Align left
+              //right: 0, // Align right
+              child: Text(
+                "${widget.pitch.key}${widget.octaveNum}",
+                style: TextStyle(
+                  color: widget.pitch.key.contains('#')
+                      ? Colors.red
+                      : Colors.black,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

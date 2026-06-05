@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:flame_learn_sheet_music/managers/note_manager.dart';
+import 'package:flame_learn_sheet_music/game/managers/note_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 
-import '../../models/pitch.dart';
+import '../../game/models/pitch.dart';
 
 part 'piano_event.dart';
 
@@ -16,7 +16,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     on<PianoKeyPlayed>((event, emit) {
       _log.fine(() => "PianoKeyPressed emitting ${event.pitch}");
 
-      _log.fine(() => "PianoKeyPressed state  ${state} before");
+      _log.fine(() => "PianoKeyPressed state  $state before");
 
       emit(
         state.copyWith(
@@ -24,7 +24,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
         ),
       );
 
-      _log.fine(() => "PianoKeyPressed state  ${state} after");
+      _log.fine(() => "PianoKeyPressed state  $state after");
     });
     on<PianoKeyReleased>((event, emit) {
       _log.fine(() => "PianoKeyReleased emitting ${event.pitch}");
@@ -39,7 +39,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoPause>((event, emit) {
-      _log.fine(() => "PianoPause emitting ${event}");
+      _log.fine(() => "PianoPause emitting $event");
 
       emit(
         state.copyWith(
@@ -50,7 +50,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoResume>((event, emit) {
-      _log.fine(() => "PianoResume emitting ${event}");
+      _log.fine(() => "PianoResume emitting $event");
 
       emit(
         state.copyWith(
@@ -60,7 +60,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoTogglePause>((event, emit) {
-      _log.fine(() => "PianoTogglePause emitting ${event}");
+      _log.fine(() => "PianoTogglePause emitting $event");
 
       emit(
         state.copyWith(
@@ -75,7 +75,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoHide>((event, emit) {
-      _log.fine(() => "PianoHide emitting ${event}");
+      _log.fine(() => "PianoHide emitting $event");
 
       emit(
         state.copyWith(
@@ -85,7 +85,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoShow>((event, emit) {
-      _log.fine(() => "PianoShow emitting ${event}");
+      _log.fine(() => "PianoShow emitting $event");
 
       emit(
         state.copyWith(
@@ -95,7 +95,7 @@ class PianoBloc extends Bloc<PianoEvent, PianoState> {
     });
 
     on<PianoToggleShow>((event, emit) {
-      _log.finer(() => "Bloc handling ${event} event");
+      _log.finer(() => "Bloc handling $event event");
       emit(
         state.copyWith(
           shown: state.shown == PianoShowState.showing
