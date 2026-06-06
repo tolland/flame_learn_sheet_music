@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flame: ^1.14.0
-  google_fonts: ^6.1.0
+  google_fonts: ^6.3.3
   flame_audio: ^2.1.7
   audioplayers: ^6.7.1
   virtual_piano: ^1.0.0

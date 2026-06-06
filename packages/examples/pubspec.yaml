@@ -20,7 +20,7 @@ dependencies:
   simple_piano: any
   simple_piano_keylistener: any
   file_picker: ^6.1.1
-  google_fonts: ^6.1.0
+  google_fonts: ^6.3.3
   logging: ^1.2.0
   ansi_codes: ^0.1.1
   flutter_bloc: ^8.1.3
