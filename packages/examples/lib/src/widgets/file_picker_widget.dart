@@ -57,7 +57,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
             // _pickFiles(onDone: () {
             //   print("_paths is $_paths");
             // });
-            Future<FilePickerResult?> result = FilePicker.platform.pickFiles();
+            Future<FilePickerResult?> result = FilePicker.pickFiles();
 
             context.read<MidiPlayerBloc>().add(
                   MidiPlayerLoadFilePicker(
@@ -124,7 +124,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
     _resetState();
     try {
       _directoryPath = null;
-      _paths = (await FilePicker.platform.pickFiles(
+      _paths = (await FilePicker.pickFiles(
         type: _pickingType,
         allowMultiple: false,
         onFileLoading: (FilePickerStatus status) {

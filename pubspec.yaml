@@ -9,24 +9,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  flame: ^1.14.0
-  google_fonts: ^6.3.3
-  flame_audio: ^2.1.7
+  ansi_codes: ^0.1.1
   audioplayers: ^6.7.1
-  virtual_piano: ^1.0.0
+  cupertino_icons: ^1.0.2
+  dashbook: ^0.1.13
+  equatable: ^2.0.0
+  flame: ^1.14.0
+  flame_audio: ^2.1.7
   flame_bloc: ^1.10.9
   flutter_bloc: ^8.1.3
-  equatable: ^2.0.0
-  piano_widget: ^1.3.0
-  logging: ^1.2.0
   go_router: ^17.3.0
-  shared_preferences: ^2.2.2
+  google_fonts: ^6.3.3
+  logging: ^1.2.0
   nes_ui: ^0.30.0
+  piano_widget: ^1.3.0
   provider: ^6.1.1
-  ansi_codes: ^0.1.1
-  dashbook: ^0.1.13
+  shared_preferences: ^2.2.2
   sound_service_util: ^0.0.1
+  virtual_piano: ^1.0.0
 
 dev_dependencies:
   flutter_test:

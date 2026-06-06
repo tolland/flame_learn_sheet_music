@@ -8,32 +8,29 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  assets_audio_player: ^3.1.1
-  audioplayers: ^6.7.1
-  bloc: ^8.1.4
-  bloc_test: ^9.1.5
-  equatable: ^2.0.5
   flutter:
     sdk: flutter
+  assets_audio_player: ^3.1.1
+  audio_audioplayers: any
+  audioplayers: ^6.7.1
+  bloc: ^8.1.4
+  bloc_concurrency: ^0.2.3
+  bloc_test: ^9.1.5
+  dart_midi: any
+  equatable: ^2.0.5
+  file_picker: ^11.0.2
   flutter_bloc: ^8.1.3
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   logging: ^1.2.0
   mockito: ^5.4.4
   pool: ^1.5.1
+  simple_piano: any
+  sound_service_util: any
   soundpool: any
   stop_watch_timer: ^3.0.2
   synchronized: ^3.1.0+1
   tonic: ^0.2.4
-  audio_audioplayers:
-    path: ../audio_audioplayers
-  sound_service_util:
-    path: ../sound_service_util
-  simple_piano:
-    path: ../simple_piano
-  bloc_concurrency: ^0.2.3
-  dart_midi: any
-  file_picker: ^6.1.1
 
 
 dev_dependencies:

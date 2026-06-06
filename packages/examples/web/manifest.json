@@ -1,6 +1,6 @@
 {
-    "name": "examples",
-    "short_name": "examples",
+    "name": "sound_service_examples",
+    "short_name": "sound_service_examples",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
