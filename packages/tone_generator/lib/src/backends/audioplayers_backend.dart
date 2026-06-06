@@ -49,7 +49,10 @@ class AudioplayersBackend extends ToneGenerator {
     );
     for (final p in _players) {
       await p.setReleaseMode(ReleaseMode.stop);
-      await p.setPlayerMode(PlayerMode.lowLatency);
+      // BytesSource is incompatible with PlayerMode.lowLatency on Android
+      // (SoundPool rejects bytes). We skip lowLatency here; the SoundpoolBackend
+      // is the intended low-latency path for Android/iOS once implemented.
+      await p.setPlayerMode(PlayerMode.mediaPlayer);
     }
     _log.fine('ready ($polyphony voices)');
   }

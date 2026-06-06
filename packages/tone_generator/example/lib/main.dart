@@ -254,40 +254,40 @@ class _MiniKeyboard extends StatelessWidget {
       height: 80,
       child: Stack(
         children: [
-          // White keys
+          // White keys row
           Row(
             children: List.generate(noteCount, (i) => startNote + i)
                 .where((n) => !_isBlack(n))
                 .map((note) => _buildKey(note, isBlack: false))
                 .toList(),
           ),
-          // Black keys overlay (approximate positions)
-          Row(
-            children: _buildBlackKeyRow(),
-          ),
+          // Black keys as Positioned widgets directly in the Stack
+          ..._buildBlackKeys(),
         ],
       ),
     );
   }
 
-  List<Widget> _buildBlackKeyRow() {
-    final widgets = <Widget>[];
+  List<Widget> _buildBlackKeys() {
+    final result = <Widget>[];
     double pos = 0;
-    const whiteW = 36.0;
+    // white key width (36) + 2 * horizontal margin (1 each side)
+    const whiteW = 38.0;
     const blackW = 24.0;
 
     for (int i = 0; i < noteCount; i++) {
       final note = startNote + i;
       if (_isBlack(note)) {
-        widgets.add(Positioned(
+        result.add(Positioned(
           left: pos - blackW / 2,
+          top: 0,
           child: _buildKey(note, isBlack: true),
         ));
       } else {
         pos += whiteW;
       }
     }
-    return widgets;
+    return result;
   }
 
   Widget _buildKey(int note, {required bool isBlack}) {
