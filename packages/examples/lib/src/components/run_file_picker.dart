@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-import '../widgets/filepicjer_midi.dart';
+import '../widgets/filepicker_midi.dart';
 
 @widgetbook.UseCase(
   name: 'filepicker_midi',

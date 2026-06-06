@@ -11,7 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:sound_service_examples/src/components/example_component_1.dart'
     as _i3;
-import 'package:sound_service_examples/src/components/run_file_picjer.dart'
+import 'package:sound_service_examples/src/components/run_file_picker.dart'
     as _i2;
 import 'package:sound_service_examples/src/components/run_kitchen_sink.dart'
     as _i6;

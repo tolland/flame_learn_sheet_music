@@ -28,7 +28,7 @@ class WidgetbookApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SoundServiceBloc>(
-          create: (childcontext) => SoundServiceBloc(
+          create: (childContext) => SoundServiceBloc(
             audioController: AudioControllerSoundPool(),
             clock: Clock(
               initialTicksPerSecond: 60,
@@ -36,7 +36,7 @@ class WidgetbookApp extends StatelessWidget {
           ),
         ),
         BlocProvider<MetronomeCubit>(
-          create: (childcontext) => MetronomeCubit(
+          create: (childContext) => MetronomeCubit(
               // clock: Clock(
               //   initialTicksPerSecond: 60,
               // ),

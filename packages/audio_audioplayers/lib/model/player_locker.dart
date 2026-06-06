@@ -81,9 +81,10 @@ class PlayerLocker {
           Duration(milliseconds: 100); // Duration between volume reductions.
 
       for (int i = 0; i < numberOfSteps; i++) {
-        if (_debug)
+        if (_debug) {
           _log.shout(
               "in - stopping ${player.source} with volume $vol - state(${player.state})");
+        }
         currentVolume -= stepSize; // Decrease the volume by the step size.
         if (currentVolume < 0.01) currentVolume = 0;
 
