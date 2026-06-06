@@ -1,0 +1,3 @@
+[submodule "packages/soundpool"]
+	path = packages/soundpool
+	url = https://github.com/tolland/soundpool.git

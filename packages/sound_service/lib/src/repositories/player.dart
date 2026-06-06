@@ -1,4 +1,4 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:assets_audio_player_updated/assets_audio_player.dart';
 
 abstract class IPlayer {
   Future<void> play({

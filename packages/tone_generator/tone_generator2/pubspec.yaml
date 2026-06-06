@@ -1,0 +1,20 @@
+name: tone_generator2
+description: "A new Flutter package project."
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.12.1
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+# The following section is specific to Flutter packages.
+flutter:
