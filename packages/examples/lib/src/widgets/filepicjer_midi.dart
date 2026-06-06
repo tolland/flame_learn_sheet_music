@@ -8,7 +8,6 @@ import 'package:simple_piano/simple_piano.dart';
 import 'package:simple_piano_keylistener/simple_piano_keylistener.dart';
 import 'package:simple_piano_waterfall/piano_waterfall.dart';
 import 'package:sound_service/sound_service.dart';
-import 'package:sound_service_examples/src/widgets/soundpool_key_listener.dart';
 import 'package:virtual_keyboard_status/virtual_keyboard_status.dart';
 
 import 'file_picker_widget.dart';

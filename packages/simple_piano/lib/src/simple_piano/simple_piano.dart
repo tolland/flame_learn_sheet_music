@@ -6,8 +6,6 @@ import 'package:simple_piano/src/simple_piano/simple_piano_config.dart';
 import '../../simple_piano.dart';
 import 'simple_octave.dart';
 
-import 'simple_piano_config.dart';
-
 class SimplePiano extends StatelessWidget {
   static final _log = Logger('SimplePiano');
 

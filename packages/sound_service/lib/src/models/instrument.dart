@@ -1,6 +1,6 @@
 // This file is "instrument.dart"
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/src/models/instrument.freezed.dart';
 part '../../generated/src/models/instrument.g.dart';

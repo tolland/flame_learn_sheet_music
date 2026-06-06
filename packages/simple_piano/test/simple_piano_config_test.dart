@@ -1,6 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:simple_piano/simple_piano.dart';
 import 'package:simple_piano/src/simple_piano/simple_piano_config.dart';
 
 void main() {

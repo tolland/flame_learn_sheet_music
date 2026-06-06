@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+part '../../../generated/src/bloc/virtual_keyboard_status/virtual_keyboard_status_bloc.freezed.dart';
 part 'virtual_keyboard_status_event.dart';
 part 'virtual_keyboard_status_state.dart';
-part '../../../generated/src/bloc/virtual_keyboard_status/virtual_keyboard_status_bloc.freezed.dart';
 
 class VirtualKeyboardStatusBloc extends Bloc<VirtualKeyboardStatusEvent, VirtualKeyboardStatusState> {
   VirtualKeyboardStatusBloc() : super(const VirtualKeyboardStatusState()) {

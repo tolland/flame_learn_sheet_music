@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:piano_widget/piano_widget.dart';
-import 'package:virtual_keyboard_status/src/bloc/bloc.dart';
-import 'package:virtual_keyboard_status/src/data/uk_layout.dart';
 
 import 'key_display_stack.dart';
 

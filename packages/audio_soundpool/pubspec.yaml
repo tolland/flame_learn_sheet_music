@@ -19,12 +19,9 @@ dependencies:
   logging: ^1.2.0
   mockito: ^5.4.4
   synchronized: ^3.1.0+1
-  sound_service:
-    path: ../sound_service
-  soundpool:
-    path: /home/tomhodder/git/flutter/soundpool/soundpool
-  soundpool_web:
-    path: /home/tomhodder/git/flutter/soundpool/soundpool_web
+  sound_service: any
+  soundpool: any
+  soundpool_web: any
 
 
 dev_dependencies:

@@ -5,7 +5,6 @@ import 'package:simple_piano/simple_piano.dart';
 import 'package:simple_piano_keylistener/simple_piano_keylistener.dart';
 import 'package:sound_service/sound_service.dart';
 import 'package:virtual_keyboard_status/virtual_keyboard_status.dart';
-
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 import '../widgets/example_widget_3.dart';

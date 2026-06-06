@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
-import 'package:sound_service/sound_service.dart';
 import 'package:simple_piano/simple_piano.dart';
+import 'package:sound_service/sound_service.dart';
 
 class DebugWidget extends StatelessWidget {
   static final _log = Logger('DebugWidget');

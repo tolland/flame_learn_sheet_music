@@ -1,12 +1,10 @@
 import 'package:audio_audioplayers/audioplayer_controller.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
 import 'package:sound_service/sound_service.dart';
 
-import 'constants.dart';
 @GenerateNiceMocks([
   MockSpec<IInstrumentRepository>(as: #MockInstrumentRepository),
   MockSpec<Clock>(as: #MockClock),

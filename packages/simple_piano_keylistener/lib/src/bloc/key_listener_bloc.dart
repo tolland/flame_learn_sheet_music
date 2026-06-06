@@ -2,11 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'key_listener_event.dart';
-
-part 'key_listener_state.dart';
-
 part '../../generated/src/bloc/key_listener_bloc.freezed.dart';
+part 'key_listener_event.dart';
+part 'key_listener_state.dart';
 
 class KeyListenerBloc extends Bloc<KeyListenerEvent, KeyListenerState> {
   KeyListenerBloc() : super(const KeyListenerState()) {

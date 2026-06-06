@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_midi_command/flutter_midi_command.dart';
 
 class MyMidiInput extends StatefulWidget {

@@ -1,6 +1,6 @@
 
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/src/models/midi_message.freezed.dart';
 //part 'midi_message.g.dart';

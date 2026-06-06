@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:simple_piano_keylistener/simple_piano_keylistener.dart';
-
 void main() {
   test('adds one to input values', () {
     // final calculator = Calculator();

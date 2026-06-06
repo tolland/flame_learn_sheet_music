@@ -1,8 +1,7 @@
 import 'package:audio_soundpool/src/widgets/simple_app.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:soundpool/soundpool.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart';
 
 class SoundPoolWidget extends StatefulWidget {
   const SoundPoolWidget({super.key});

@@ -1,15 +1,10 @@
 import 'dart:async';
-import 'dart:collection';
-import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
 import 'package:pool/pool.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:sound_service/sound_service.dart';
-import 'app_lifecycle.dart';
+import 'package:synchronized/synchronized.dart';
 
 /// Allows playing music and sound. A facade to `package:audioplayers`.
 class AudioControllerPools {

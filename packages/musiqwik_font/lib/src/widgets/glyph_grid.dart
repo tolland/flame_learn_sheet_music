@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:musiqwik_font/musiqwik_font.dart';
 
 class GlyphGrid extends StatelessWidget {

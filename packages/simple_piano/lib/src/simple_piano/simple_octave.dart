@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_piano/src/simple_piano/simple_key.dart';
 import 'package:simple_piano/src/simple_piano/simple_octave_config.dart';
-import 'simple_key.dart';
-import 'simple_octave_config.dart';
 import 'package:sound_service_util/main.dart';
 
 class SimpleOctave extends StatelessWidget {

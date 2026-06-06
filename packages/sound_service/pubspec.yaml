@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   assets_audio_player: ^3.1.1
-  audioplayers: ^5.2.1
+  audioplayers: ^6.7.1
   bloc: ^8.1.4
   bloc_test: ^9.1.5
   equatable: ^2.0.5
@@ -21,8 +21,7 @@ dependencies:
   logging: ^1.2.0
   mockito: ^5.4.4
   pool: ^1.5.1
-  soundpool:
-    path: /home/tomhodder/git/flutter/soundpool/soundpool
+  soundpool: any
   stop_watch_timer: ^3.0.2
   synchronized: ^3.1.0+1
   tonic: ^0.2.4
@@ -33,8 +32,7 @@ dependencies:
   simple_piano:
     path: ../simple_piano
   bloc_concurrency: ^0.2.3
-  dart_midi:
-    path: /home/tomhodder/git/flutter/dart_midi
+  dart_midi: any
   file_picker: ^6.1.1
 
 

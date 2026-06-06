@@ -49,7 +49,7 @@ class _Sf2PlayerState extends State<Sf2Player> {
 
   void load(String asset) async {
     //FlutterMidi.unmute(); // Optionally Unmute
-    ByteData _byte = await rootBundle.load(asset);
-    _flutterMidi.prepare(sf2: _byte);
+    ByteData byte = await rootBundle.load(asset);
+    _flutterMidi.prepare(sf2: byte);
   }
 }

@@ -1,9 +1,5 @@
-import 'dart:math';
-
 import 'package:note_sequence/src/model/models.dart';
 
-import 'mixin.dart';
-import 'models.dart';
 import '../utils/utils.dart';
 
 class Staff extends Validatable {

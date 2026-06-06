@@ -7,11 +7,9 @@ import '../../managers/track_timer.dart';
 import '../../models/models.dart';
 import '../../repositories/playlist_repository.dart';
 
-part 'audio_player_event.dart';
-
-part 'audio_player_state.dart';
-
 part '../../../generated/src/bloc/audio_player/audio_player_bloc.freezed.dart';
+part 'audio_player_event.dart';
+part 'audio_player_state.dart';
 
 class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
   static final _log = Logger('AudioPlayerBloc');

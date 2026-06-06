@@ -1,7 +1,5 @@
 import 'package:note_sequence/src/model/models.dart';
 
-import 'clef.dart';
-
 class Note {
   final Pitch pitch;
   /// these are within measure values

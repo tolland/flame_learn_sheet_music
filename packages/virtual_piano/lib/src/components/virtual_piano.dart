@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:piano_widget/piano_widget.dart';
 import 'package:logging/logging.dart';
+import 'package:piano_widget/piano_widget.dart';
 
 class VirtualPiano extends StatelessWidget {
   static final _log = Logger('VirtualPiano');

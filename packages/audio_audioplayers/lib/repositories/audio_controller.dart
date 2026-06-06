@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:sound_service/sound_service.dart';
+
 import '../model/player_locker.dart';
 import 'app_lifecycle.dart';
 

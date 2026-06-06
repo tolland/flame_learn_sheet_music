@@ -1,17 +1,15 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dart_midi/dart_midi.dart';
+import 'package:equatable/equatable.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
-import 'package:equatable/equatable.dart';
-import 'package:dart_midi/dart_midi.dart';
 import 'package:sound_service/sound_service.dart';
 
 import '../../managers/adjustable_periodic_stream.dart';
 
 part 'midi_player_event.dart';
-
 part 'midi_player_state.dart';
 
 class MidiPlayerBloc extends Bloc<MidiPlayerEvent, MidiPlayerState> {

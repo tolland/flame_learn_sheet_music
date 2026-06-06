@@ -1,8 +1,8 @@
-import 'package:ansi_codes/ansi_codes.dart';
 import 'dart:math';
+
+import 'package:ansi_codes/ansi_codes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
-import 'dart:developer' as dev;
 
 class Utils {
   // private constructor

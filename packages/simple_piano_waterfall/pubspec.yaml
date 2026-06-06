@@ -1,5 +1,5 @@
 name: simple_piano_waterfall
-description: "A new Flutter project."
+description: "A flutter widget to display a piano waterfall visualization."
 version: 0.0.1
 homepage: https://github.com/tolland/piano_waterfall
 
@@ -11,8 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   logging: ^1.2.0
-  sound_service_util:
-    path: ../sound_service_util
+  sound_service_util: any
 
 dev_dependencies:
   flutter_test:

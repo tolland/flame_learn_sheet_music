@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:sound_service/sound_service.dart';
 import 'dart:io';
 
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sound_service/sound_service.dart';
 import 'package:sound_service/src/piano_sound_samples/piano_99_leethring.dart';
 import 'package:sound_service_util/main.dart';
 

@@ -1,4 +1,3 @@
-import 'mixin.dart';
 import 'models.dart';
 
 class Part extends Validatable {

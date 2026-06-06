@@ -1,11 +1,11 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sound_service/sound_service.dart';
 import 'package:soundpool/soundpool.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart';
+
 import 'platform_options.dart';
 
 class SimpleApp extends StatefulWidget {

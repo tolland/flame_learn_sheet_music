@@ -1,10 +1,5 @@
 import 'package:note_sequence/src/model/models.dart';
 
-import '../utils/util.dart';
-import 'clef.dart';
-import 'mixin.dart';
-import 'note.dart';
-
 class Measure extends Validatable {
   List<Note> notes = [];
   Voice? currentVoice;

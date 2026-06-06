@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 class Pitch extends Equatable {

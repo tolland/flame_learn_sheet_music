@@ -1,20 +1,15 @@
-import 'package:audio_audioplayers/audioplayer_controller.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
-import 'package:simple_piano/simple_piano.dart';
 import 'package:synchronized/synchronized.dart';
 
 import '../../../sound_service.dart';
-import '../../managers/managers.dart';
-
-part 'sound_service_event.dart';
-
-part 'sound_service_state.dart';
 
 part '../../../generated/src/bloc/sound_service/sound_service_bloc.freezed.dart';
+part 'sound_service_event.dart';
+part 'sound_service_state.dart';
 
 class SoundServiceBloc extends Bloc<SoundServiceEvent, SoundServiceState> {
   static final _log = Logger('SoundServiceBloc');

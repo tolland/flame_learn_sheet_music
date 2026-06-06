@@ -1,16 +1,12 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 
-part 'simple_piano_event.dart';
-
-part 'simple_piano_state.dart';
-
 part '../../generated/src/bloc/simple_piano_bloc.freezed.dart';
+part 'simple_piano_event.dart';
+part 'simple_piano_state.dart';
 
 /// This is the bloc for the simple piano. It is responsible for
 /// handling the gesture events directly on the widget.

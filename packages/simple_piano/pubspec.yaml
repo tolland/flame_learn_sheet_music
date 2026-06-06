@@ -17,8 +17,7 @@ dependencies:
   flutter_bloc: ^8.1.3
   freezed_annotation: ^2.4.1
   logging: ^1.2.0
-  sound_service_util:
-    path: ../sound_service_util
+  sound_service_util: ^0.0.0
 
 dev_dependencies:
   flutter_test:
