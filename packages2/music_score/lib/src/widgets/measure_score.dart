@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:note_sequence/note_sequence.dart';
-import '../../../music_score.dart';
-import '../utils/utils.dart';
+
 import 'measure_part.dart';
-import 'music_font_text.dart';
 
 class MeasureWidgetScore extends StatelessWidget {
   const MeasureWidgetScore({
@@ -28,7 +25,7 @@ class MeasureWidgetScore extends StatelessWidget {
                     measure: measure,
                     score: score,
                   ))
-              .toList(),
+              ,
         ],
       ),
     );

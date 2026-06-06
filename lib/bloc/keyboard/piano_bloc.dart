@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flame_learn_sheet_music/game/managers/note_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 

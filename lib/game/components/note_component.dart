@@ -2,20 +2,14 @@ import 'dart:ui';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 
 import '../../bloc/game_stats/game_stats_bloc.dart';
-import '../../bloc/keyboard/piano_bloc.dart';
 import '../learn_sheet_music.dart';
-import '../managers/note_manager.dart';
 import '../models/note.dart';
 import '../models/note_value.dart';
 import '../models/pitch.dart';
-import 'package:flame_audio/flame_audio.dart';
 
 class NoteComponent extends PositionComponent
     with

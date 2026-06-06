@@ -37,9 +37,10 @@ class PlayerLocker {
       if (_debug)  _log.shout('${player.playerId} player state: $s - ${pitch}');
     });
     await _lock.synchronized(() async {
-      if (_debug)
+      if (_debug) {
         _log.fine(
             "in - playing ${pitch} with volume ${volume.toStringAsFixed(2)} - state(${player.state})");
+      }
       if (player.state == PlayerState.playing) {
         await player.stop();
       }
@@ -47,16 +48,18 @@ class PlayerLocker {
           player.state == PlayerState.completed);
       //await player.play('assets/notes/1.mp3');
       // String note = "notes/${Piano88Leethring.pianoNotes[pitch]!}";
-      if (_debug)
+      if (_debug) {
         _log.info(
             "in - playing ${pitch} with volume ${volume.toStringAsFixed(2)} - state(${player.state})");
+      }
       await player.setVolume(volume);
       await player.setSource(assetSources[pitch]!);
       await player.resume();
     });
-    if (_debug)
+    if (_debug) {
       _log.info(
           "out2- playing ${pitch} with volume ${volume.toStringAsFixed(2)} - state(${player.state})");
+    }
   }
 
   Future<void> reduceOff() async {

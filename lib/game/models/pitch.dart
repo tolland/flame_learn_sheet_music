@@ -1,6 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'dart:math';
 
 class Pitch extends Equatable {
 

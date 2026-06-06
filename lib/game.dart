@@ -1,9 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
-import 'package:nes_ui/nes_ui.dart';
 
 import 'bloc/game_stats/game_stats_bloc.dart';
 import 'bloc/game_stats/view/game_stat.dart';

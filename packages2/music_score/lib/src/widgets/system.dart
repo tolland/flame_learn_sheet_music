@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:music_score/music_score.dart';
 
 import 'package:note_sequence/note_sequence.dart';
-import 'measure_score.dart';
 
 /// Note Sequence system is a
 class NoteSequenceSystem extends StatelessWidget {

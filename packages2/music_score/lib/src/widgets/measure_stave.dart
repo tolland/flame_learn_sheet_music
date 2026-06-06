@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_score/music_score.dart';
 import 'package:music_score/src/widgets/stupid_mapping.dart';
 import 'package:musiqwik_font/musiqwik_font.dart';
 

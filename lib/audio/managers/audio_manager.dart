@@ -1,7 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_bloc/flame_bloc.dart';
-import 'package:flame_learn_sheet_music/game/managers/note_manager.dart';
 import 'package:logging/logging.dart';
 
 import '../../bloc/keyboard/piano_bloc.dart';

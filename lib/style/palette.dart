@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flame/palette.dart';
-import 'package:flutter/material.dart';
 
 /// A palette of colors to be used in the game.
 ///

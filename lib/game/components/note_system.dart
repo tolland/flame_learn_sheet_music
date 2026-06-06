@@ -1,18 +1,10 @@
-import 'dart:async';
-import 'dart:math';
-import 'dart:ui';
 
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
-import 'package:flame/input.dart';
-import 'package:flame/palette.dart';
-import 'package:flame_learn_sheet_music/game/components/notation_area.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
 import '../learn_sheet_music.dart';
 import '../models/note.dart';
-import '../models/pitch.dart';
 import 'note_component.dart';
 
 class NoteSystem extends RectangleComponent

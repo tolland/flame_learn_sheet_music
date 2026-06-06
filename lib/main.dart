@@ -32,7 +32,7 @@ void main() async {
   await Flame.device.fullScreen();
 
   // this is to give some global event logging for bloc
-  Bloc.observer = CounterObserver();
+  Bloc.observer = DebugBlocObserver();
 
   runApp(const MyApp());
 }

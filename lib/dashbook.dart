@@ -1,15 +1,12 @@
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dashbook/dashbook.dart';
 
 import 'game/components/examples.dart';
-import 'game/components/note_system.dart';
 
 import 'package:music_score/music_score.dart';
 import 'package:note_sequence/note_sequence.dart';
 
-import 'game/components/note_system_example.dart';
 
 
 void main() {

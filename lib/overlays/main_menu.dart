@@ -2,7 +2,6 @@ import 'package:flame_learn_sheet_music/bloc/keyboard/piano_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../game/learn_sheet_music.dart';
 
 class MainMenu extends StatelessWidget {
   // Reference to parent game.

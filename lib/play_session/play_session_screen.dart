@@ -10,7 +10,6 @@ import '../audio/sounds.dart';
 import '../game/level_state.dart';
 import '../game/score.dart';
 import '../level_selection/game_level.dart';
-import '../level_selection/levels.dart';
 import '../player_progress/player_progress.dart';
 import '../style/confetti.dart';
 import '../style/my_button.dart';

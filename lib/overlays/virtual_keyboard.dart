@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 import 'package:piano_widget/piano_widget.dart';
-import 'package:virtual_piano/virtual_piano.dart';
 
 import '../bloc/keyboard/piano_bloc.dart';
-import '../game/learn_sheet_music.dart';
 import '../game/managers/note_manager.dart';
 
 class VirtualKeyboard extends StatelessWidget {

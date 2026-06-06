@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide Image, Gradient;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
