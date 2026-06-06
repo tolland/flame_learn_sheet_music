@@ -13,14 +13,14 @@ class AudioController implements IAudioController {
   static final _log = Logger('AudioController')..level = Level.FINEST;
 
 
-  static bool _debug = false;
+  static final bool _debug = false;
 
   final List<PlayerLocker> _sfxPlayers;
 
   //final List<AudioPlayer> _availablePlayers = [];
 
-  /// pitch to filename map
-  ///late final Map<int, AssetSource> assetSources;
+  // pitch to filename map
+  // late final Map<int, AssetSource> assetSources;
   final Map<int, Source> assetSources = {};
 
   int _currentSfxPlayer = 0;
@@ -60,6 +60,7 @@ class AudioController implements IAudioController {
     //_attachSettings(settingsController);
   }
 
+  @override
   void dispose() {
     if (_debug) _log.fine("disposing player");
     _lifecycleNotifier?.removeListener(_handleAppLifecycle);
@@ -71,6 +72,7 @@ class AudioController implements IAudioController {
 
   void reduceVolumeGradually(PlayerLocker playa) async {}
 
+  @override
   void stopNote(int pitch, int channel) {
     String note = Piano88Leethring.pianoNotes[pitch]!;
 
@@ -94,6 +96,7 @@ class AudioController implements IAudioController {
   }
 
 //https://pub.dev/packages/pool
+  @override
   Future<void> playNote({
     required int pitch,
     required int velocity,
@@ -128,7 +131,7 @@ class AudioController implements IAudioController {
       note = "notes/${Piano88Leethring.pianoNotes[pitch]!}";
       if (_debug)
         _log.info(
-            "playing ${note} with volume $volume - state(${currentPlayer.player.state})");
+            "playing $note with volume $volume - state(${currentPlayer.player.state})");
       currentPlayer.playNote(assetSources, pitch, velocity / 127);
     } else if (channel == 1) {
       note = "sfx/metronome-85688";

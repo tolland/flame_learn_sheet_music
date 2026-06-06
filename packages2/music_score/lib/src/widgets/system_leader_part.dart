@@ -22,7 +22,7 @@ class SystemLeaderPart extends StatelessWidget {
       // ),
       child: Column(
         children: [
-          ...part.staves.map((stave) => SystemLeaderStave(staff: stave)).toList(),
+          ...part.staves.map((stave) => SystemLeaderStave(staff: stave)),
         ],
       ),
     );

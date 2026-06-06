@@ -34,7 +34,7 @@ class _PianoPlusWaterfallState extends State<PianoPlusWaterfall> {
 
   @override
   Widget build(BuildContext context) {
-    _log.fine("calling build in ${hashCode}");
+    _log.fine("calling build in $hashCode");
 
     //print("$noteOn()");
 

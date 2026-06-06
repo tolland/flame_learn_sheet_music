@@ -16,7 +16,7 @@ class MeasureStave extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Note> notes = staff.parentPart.parentScore.bars[staff.parentPart]![staff]![measure]!.notes!;
+    List<Note> notes = staff.parentPart.parentScore.bars[staff.parentPart]![staff]![measure]!.notes;
     return Container(
       decoration: BoxDecoration(
         // boxShadow: const [
@@ -35,7 +35,7 @@ class MeasureStave extends StatelessWidget {
       child: IntrinsicWidth(
         child: Row(
           children: [
-            ...notes.map((note) => Mapping.getMappedText(note)).toList(),
+            ...notes.map((note) => Mapping.getMappedText(note)),
             RichText(
               text: MusiQwik.barEnd.span(),
             ),

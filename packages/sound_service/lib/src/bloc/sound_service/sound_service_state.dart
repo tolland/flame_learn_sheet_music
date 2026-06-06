@@ -63,6 +63,6 @@ class SoundServiceState extends Equatable {
 
   @override
   String toString() {
-    return 'state{(${status}) noteOn(${noteOn}) noteOff(${noteOff}) notesPlaying(${notesPlaying})';
+    return 'state{($status) noteOn($noteOn) noteOff($noteOff) notesPlaying($notesPlaying)';
   }
 }

@@ -24,7 +24,7 @@ class MeasurePart extends StatelessWidget {
                   staff: stave,
                   measure: measure,
                 ))
-            .toList(),
+            ,
       ],
     );
   }

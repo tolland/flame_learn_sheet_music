@@ -12,10 +12,10 @@ class AudioControllerPools {
 
   /// This is a list of [AudioPool] instances which are rotated to play
   /// sound effects.
-  late  Map<int, AudioPool> _pools = {};
+  late final  Map<int, AudioPool> _pools = {};
 
   /// pitch number to filename map
-  late  Map<int, AssetSource> _assetSources = {};
+  late final  Map<int, AssetSource> _assetSources = {};
 
   /// various attempts to prevent the reused players getting stuck
   final Lock _lock = Lock();

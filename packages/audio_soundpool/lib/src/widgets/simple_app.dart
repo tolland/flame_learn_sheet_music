@@ -13,10 +13,10 @@ class SimpleApp extends StatefulWidget {
   final ValueSetter<SoundpoolOptions> onOptionsChange;
 
   SimpleApp({
-    Key? key,
+    super.key,
     required this.pool,
     required this.onOptionsChange,
-  }) : super(key: key);
+  });
 
   @override
   _SimpleAppState createState() => _SimpleAppState();
@@ -35,6 +35,7 @@ class _SimpleAppState extends State<SimpleApp> {
 
   Soundpool get _soundpool => widget.pool;
 
+  @override
   void initState() {
     super.initState();
 

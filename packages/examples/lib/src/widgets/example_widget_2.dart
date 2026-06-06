@@ -21,7 +21,7 @@ class _DraggingKeysTestState extends State<DraggingKeysTest> {
 
   @override
   Widget build(BuildContext context) {
-    _log.fine("calling build in ${hashCode}");
+    _log.fine("calling build in $hashCode");
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 

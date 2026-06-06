@@ -15,7 +15,7 @@ class SystemLeaderScore extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-...score.parts.map((part) => SystemLeaderPart(part: part)).toList(),
+...score.parts.map((part) => SystemLeaderPart(part: part)),
       ],
     );
   }

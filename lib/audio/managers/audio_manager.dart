@@ -98,7 +98,7 @@ class AudioManager extends Component
           for (var pitch in state.pitchesPlaying) {
             if (!pitchesPlayingHere.contains(pitch)) {
               pitchesPlayingHere.add(pitch);
-              _log.finer(() => "playing ${pitch}");
+              _log.finer(() => "playing $pitch");
               var soundfile = pitch.sound;
               _log.finer(() => "playing $soundfile");
               FlameAudio.play(soundfile, volume: 1.0);

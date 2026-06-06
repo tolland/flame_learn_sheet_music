@@ -5,13 +5,13 @@ import 'package:musiqwik_font/musiqwik_font.dart';
 import 'package:note_sequence/note_sequence.dart';
 
 class Mapping {
-  static doRecog() {
+  static TapGestureRecognizer doRecog() {
     TapGestureRecognizer recognizer = new TapGestureRecognizer();
     recognizer.onTap = () => print('Tap Here onTap');
     return recognizer;
   }
 
-  static getRichText(TextSpan textSpan) {
+  static RichText getRichText(TextSpan textSpan) {
     return RichText(
       text: TextSpan(
         children: [

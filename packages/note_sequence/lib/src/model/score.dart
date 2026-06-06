@@ -65,9 +65,9 @@ class Score {
     //var totSteps = measures.map((measure) => measure.getTotalSteps()).reduce((a, b) => a + b);
 
     var totSteps = 0;
-    measures.forEach((measure) {
+    for (var measure in measures) {
       totSteps += measure.getTotalSteps();
-    });
+    }
 
     var measure = Measure(
       beats: initialBeats,
@@ -83,7 +83,7 @@ class Score {
     measures.add(measure);
     currentMeasure = measure;
     for (Part part in parts) {
-      /// recipricol link for score-partwise
+      /// reciprocal link for score-partwise
       measure.parts.add(part);
       for (Staff staff in part.staves) {
         var partStaveMeasure = PartStaveMeasure(

@@ -26,7 +26,7 @@ class NotationArea extends RectangleComponent
   }) {
     paint=Paint()..color = Colors.green.shade50;
 
-    _log.finer(() => "${hashCode} - creating NotationArea");
+    _log.finer(() => "$hashCode - creating NotationArea");
     //paint.color = Color(0x88ff0000);
   }
 

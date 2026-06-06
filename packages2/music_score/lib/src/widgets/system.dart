@@ -25,7 +25,7 @@ class NoteSequenceSystem extends StatelessWidget {
       child: Wrap(
         children: [
           SystemLeaderScore(score: score),
-          ...score.measures.map((measure) => MeasureWidgetScore(measure: measure, score: score)).toList(),
+          ...score.measures.map((measure) => MeasureWidgetScore(measure: measure, score: score)),
         ],
       ),
     );

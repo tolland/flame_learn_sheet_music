@@ -128,7 +128,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
         type: _pickingType,
         allowMultiple: false,
         onFileLoading: (FilePickerStatus status) {
-          print("status is ${status}");
+          print("status is $status");
           if (status == FilePickerStatus.done) {
             onDone();
           }

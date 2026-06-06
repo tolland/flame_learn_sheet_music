@@ -19,7 +19,7 @@ abstract class IClock {
 /// implementation of [IClock] using [StopWatchTimer]
 class Clock extends IClock {
   // Private field for tempo.
-  double _ticksPerSecond;
+  final double _ticksPerSecond;
 
   // Getter for tempo.
   double get ticksPerSecond => _ticksPerSecond;
@@ -41,6 +41,7 @@ class Clock extends IClock {
 
   StopWatchTimer get stopWatchTimer => _stopWatchTimer;
 
+  @override
   void dispose() {
     _stopWatchTimer.dispose();
     //_stopWatchTimer = null;

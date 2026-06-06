@@ -56,7 +56,7 @@ class NoteSpawner extends PositionComponent
   void start() {
     sendMessagesWithIntervals(notes).listen((note) {
       _log.finer(() =>
-          '${note} - value is ${note.noteValue} - pitch is ${note.pitch.glyph}');
+          '$note - value is ${note.noteValue} - pitch is ${note.pitch.glyph}');
       _log.finer(() => 'note has priority ${note.priority}');
       add(note);
     });

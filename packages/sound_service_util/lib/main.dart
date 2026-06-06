@@ -45,8 +45,8 @@ class Utils {
         print(
             '${ansiCodes.grey.open}[${record.loggerName.substring(0,
                 record.loggerName.length > 16 ? 16 : record.loggerName.length)
-                .padRight(16)}]${ansiCodes.grey.close} ${openstring}${record
-                .level.name.padRight(7)}:${closestring} ${record.message}');
+                .padRight(16)}]${ansiCodes.grey.close} $openstring${record
+                .level.name.padRight(7)}:$closestring ${record.message}');
       }else {
         print(
             '${record

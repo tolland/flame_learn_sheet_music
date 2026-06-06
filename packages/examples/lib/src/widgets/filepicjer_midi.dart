@@ -36,7 +36,7 @@ class _FilePickerMidiState extends State<FilePickerMidi> {
 
   @override
   Widget build(BuildContext context) {
-    _log.fine("calling build in ${hashCode}");
+    _log.fine("calling build in $hashCode");
 
     //print("$noteOn()");
 
