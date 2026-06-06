@@ -3,7 +3,7 @@ import 'piano_note_map.dart';
 
 /// Pre-configured [SoundBank] factories for bundled sample sets.
 abstract final class StockBanks {
-  static const _noteBase = 'packages/sound_service/assets/notes';
+  static const _noteBase = 'packages/sound_service_assets/assets/notes';
 
   /// Piano bank covering C2–C6 (MIDI 36–84), 49 notes.
   ///

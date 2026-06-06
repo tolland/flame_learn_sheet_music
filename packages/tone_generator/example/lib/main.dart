@@ -6,8 +6,8 @@ import 'package:tone_generator/tone_generator.dart';
 
 void main() {
   Logger.root.level = Level.FINE;
-  Logger.root.onRecord.listen((r) =>
-      debugPrint('[${r.loggerName}] ${r.level.name}: ${r.message}'));
+  Logger.root.onRecord.listen(
+      (r) => debugPrint('[${r.loggerName}] ${r.level.name}: ${r.message}'));
   runApp(const ToneGeneratorExampleApp());
 }
 
@@ -108,7 +108,8 @@ class _ToneGeneratorDemoState extends State<ToneGeneratorDemo> {
     final gateMs = (sixteenthMs * 0.6).round();
 
     for (int i = 0; i < count; i++) {
-      _streamCtrl.add(NoteOn(0, note, 70 + (i % 4) * 10)); // slight velocity variation
+      _streamCtrl
+          .add(NoteOn(0, note, 70 + (i % 4) * 10)); // slight velocity variation
       await Future.delayed(Duration(milliseconds: gateMs));
       _streamCtrl.add(NoteOff(0, note));
       await Future.delayed(Duration(milliseconds: sixteenthMs - gateMs));
@@ -118,10 +119,10 @@ class _ToneGeneratorDemoState extends State<ToneGeneratorDemo> {
   /// Plays two voices simultaneously to exercise polyphony.
   Future<void> _playChords() async {
     const chords = [
-      [60, 64, 67],   // C major
-      [62, 65, 69],   // D minor
-      [64, 67, 71],   // E minor
-      [65, 69, 72],   // F major
+      [60, 64, 67], // C major
+      [62, 65, 69], // D minor
+      [64, 67, 71], // E minor
+      [65, 69, 72], // F major
     ];
     for (final chord in chords) {
       for (final n in chord) _streamCtrl.add(NoteOn(0, n, 80));
@@ -214,8 +215,7 @@ class _ToneGeneratorDemoState extends State<ToneGeneratorDemo> {
             OutlinedButton.icon(
               icon: const Icon(Icons.stop),
               label: const Text('All notes off'),
-              onPressed:
-                  ready ? () => _tg.send(const AllNotesOff()) : null,
+              onPressed: ready ? () => _tg.send(const AllNotesOff()) : null,
             ),
           ],
         ),

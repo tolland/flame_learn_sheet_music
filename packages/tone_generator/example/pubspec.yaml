@@ -13,8 +13,7 @@ dependencies:
   logging: ^1.2.0
   tone_generator:
     path: ../
-  sound_service:
-    path: ../../sound_service
+  sound_service_assets: any
 
 dev_dependencies:
   flutter_test:
