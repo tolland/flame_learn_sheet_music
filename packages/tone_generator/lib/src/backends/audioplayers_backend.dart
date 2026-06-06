@@ -4,8 +4,6 @@ import 'dart:typed_data';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:logging/logging.dart';
 
-import '../messages.dart';
-import '../sound_bank.dart';
 import '../tone_generator.dart';
 import '../voice_pool.dart';
 
@@ -24,6 +22,7 @@ class AudioplayersBackend extends ToneGenerator {
 
   // program → SoundBank
   final Map<int, SoundBank> _banks = {};
+
   // channel → active program (default 0)
   final Map<int, int> _programs = {};
 

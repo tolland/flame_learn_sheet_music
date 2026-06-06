@@ -401,10 +401,10 @@ packages:
     dependency: transitive
     description:
       name: freezed_annotation
-      sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
+      sha256: "7294967ff0a6d98638e7acb774aac3af2550777accd8149c90af5b014e6d44d8"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.4"
+    version: "3.1.0"
   glob:
     dependency: transitive
     description:
@@ -797,13 +797,12 @@ packages:
     source: path
     version: "1.0.0"
   soundpool:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: soundpool
-      sha256: fe7302005759d6a3561de1711e3ea818b1ba025a62375b469196dda5b654bd38
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.1"
+      path: "/home/tomhodder/git/flutter/soundpool/soundpool"
+      relative: false
+    source: path
+    version: "2.5.0"
   soundpool_macos:
     dependency: transitive
     description:
@@ -821,12 +820,11 @@ packages:
     source: hosted
     version: "2.2.0"
   soundpool_web:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: soundpool_web
-      sha256: "3d1eb8d6cceb8a0aec38ff9aec4fbd11a9a8101d27b27a6eb29305b83d46aee5"
-      url: "https://pub.dev"
-    source: hosted
+      path: "/home/tomhodder/git/flutter/soundpool/soundpool_web"
+      relative: false
+    source: path
     version: "2.3.0"
   source_gen:
     dependency: transitive
@@ -992,10 +990,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: "1fef9e8e11e2991bb773070d4656b7bd5d850967a2456cfc83cf47925ba79489"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.7"
+    version: "4.5.3"
   vector_math:
     dependency: transitive
     description:

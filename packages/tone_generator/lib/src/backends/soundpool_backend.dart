@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import '../messages.dart';
-import '../sound_bank.dart';
 import '../tone_generator.dart';
 
 /// Soundpool backend placeholder — lower latency on Android/iOS.
@@ -17,6 +15,7 @@ class SoundpoolBackend extends ToneGenerator {
 
   @override
   bool get muted => false;
+
   @override
   set muted(bool value) {}
 

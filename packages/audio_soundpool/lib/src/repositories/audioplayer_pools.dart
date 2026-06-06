@@ -5,26 +5,9 @@ import 'package:logging/logging.dart';
 import 'package:sound_service/sound_service.dart';
 import 'package:soundpool/soundpool.dart';
 
-class StreamCache {
-  final int streamId;
-  final int pitch;
-  final int channel;
-  final int velocity;
-  final int soundId;
+import '../models/stream_cache.dart';
 
-  StreamCache({
-    required this.streamId,
-    required this.pitch,
-    required this.channel,
-    required this.velocity,
-    required this.soundId,
-  });
 
-  @override
-  String toString() {
-    return 'StreamCache{streamId: $streamId, pitch: $pitch, channel: $channel, velocity: $velocity, soundId: $soundId}';
-  }
-}
 
 class AudioControllerSoundPool implements IAudioController {
   static final _log = Logger('AudioControllerSoundPool');

@@ -15,7 +15,7 @@
 /// // stream-driven (MIDI file player, keyboard, metronome, …)
 /// final sub = tg.subscribe(myMidiStream);
 /// ```
-library tone_generator;
+library;
 
 export 'src/messages.dart';
 export 'src/tone_generator.dart';
