@@ -41,7 +41,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/packages/*/build/
+/apps/**/build/
+/packages/**/build/
+/packages2/**/build/
 
 # melos
 pubspec_overrides.yaml
