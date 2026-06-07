@@ -1,9 +1,10 @@
 name: tone_generator
+resolution: workspace
 description: "Stream-based MIDI tone generator facade for Flutter with swappable backends."
 version: 0.0.1
 
 environment:
-  sdk: '>=3.2.5 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -15,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   # No bundled assets — stock banks reference packages/sound_service/assets/

@@ -1,10 +1,11 @@
 name: audio_audioplayers
+resolution: workspace
 description: "A new Flutter project."
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.2.5 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -27,7 +28,7 @@ dev_dependencies:
     sdk: flutter
   bloc_test: ^9.1.5
   build_runner: ^2.4.8
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
   freezed: ^3.1.0
   json_serializable: ^6.7.1
   mockito: ^5.4.4

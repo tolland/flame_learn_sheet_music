@@ -1,10 +1,11 @@
 name: sound_service
+resolution: workspace
 description: "Sound service bloc to handle audio playback."
 version: 0.0.1
 homepage: https://github.com/tolland/sound_service
 
 environment:
-  sdk: '>=3.2.5 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -34,7 +35,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
   bloc_test: ^9.1.5
   build_runner: ^2.4.8
   freezed: ^3.1.0

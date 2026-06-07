@@ -1,4 +1,5 @@
 name: plugin1
+resolution: workspace
 description: "A new Flutter plugin project."
 version: 0.0.1
 homepage:

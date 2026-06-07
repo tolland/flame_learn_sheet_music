@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.0.1
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -26,7 +26,7 @@ dependencies:
   piano_widget: ^1.3.0
   provider: ^6.1.1
   shared_preferences: ^2.2.2
-  sound_service_util: ^0.0.1
+  sound_service_util: ^1.0.0
   virtual_piano: ^1.0.0
 
 dev_dependencies:
@@ -34,6 +34,51 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
   melos: ^7.8.1
+
+workspace:
+  - packages/audio_audioplayers
+  - packages/audio_soundpool
+  - packages/examples
+  - packages/midi_input
+  - packages/music_stave
+  - packages/musiqwik_font
+  - packages/native_add
+  - packages/note_sequence
+  - packages/piano_widget
+  - packages/plugin1
+  - packages/simple_piano/simple_piano
+  - packages/simple_piano/simple_piano_keylistener
+  - packages/simple_piano/simple_piano_waterfall
+  - packages/sound_service
+  - packages/sound_service_assets
+  - packages/sound_service_util
+  - packages/tone_generator/tone_generator
+  - packages/tone_generator/tone_generator/example
+  - packages/virtual_keyboard_status
+  - packages/virtual_piano
+  - packages2/music_score
+  - packages2/sf2_player
+
+melos:
+  repository: https://github.com/tolland/flame_learn_sheet_music
+  useRootAsPackage: true
+  command:
+    bootstrap:
+      # Avoid concurrent pub requests,
+      # remove when https://github.com/dart-lang/pub/issues/3404 is fixed
+      runPubGetInParallel: false
+  scripts:
+    lint:all:
+      run: melos run analyze && melos run format
+      description: Run all static analysis checks.
+    analyze:
+      run: |
+        melos exec -c 1 -- \
+          flutter analyze --fatal-infos
+      description: Run `flutter analyze` for all packages.
+    format:
+      run: melos exec dart format . --fix
+      description: Run `dart format` for all packages.
 
 flutter:
   uses-material-design: true

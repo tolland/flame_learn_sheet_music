@@ -1,4 +1,5 @@
 name: native_add
+resolution: workspace
 description: "A new Dart FFI package project."
 version: 0.0.1
 

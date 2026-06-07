@@ -1,10 +1,11 @@
 name: sound_service_util
+resolution: workspace
 description: simple methods
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -14,8 +15,7 @@ dependencies:
   ansi_codes: ^0.1.1
 
 dev_dependencies:
-  lints: ^2.1.0
-  melos: ^7.8.1
+  lints: ^6.1.0
 
 flutter:
   uses-material-design: true
