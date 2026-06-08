@@ -4,8 +4,7 @@ import 'dart:typed_data';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:logging/logging.dart';
 
-import '../tone_generator.dart';
-import '../voice_pool.dart';
+import '../../tone_generator.dart';
 
 /// [ToneGenerator] backed by the `audioplayers` package.
 ///

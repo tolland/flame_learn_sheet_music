@@ -3,7 +3,7 @@ import 'package:sound_service_util/main.dart';
 
 import 'simple_octave_config.dart';
 
-/// given 2 of the 3 values, calculates the remainig values for
+/// given 2 of the 3 values, calculates the remaining values for
 /// a piano widget. need to prover either startPitch and endPitch
 /// or startPitch and notes, or endPitch and notes etc
 

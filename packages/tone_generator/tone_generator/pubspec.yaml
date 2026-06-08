@@ -4,7 +4,7 @@ description: "Stream-based MIDI tone generator facade for Flutter with swappable
 version: 0.0.1
 
 environment:
-  sdk: '>=3.6.0 <4.0.0'
+  sdk: '>=3.10.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

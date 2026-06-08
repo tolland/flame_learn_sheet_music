@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.0.1
 
 environment:
-  sdk: '>=3.6.0 <4.0.0'
+  sdk: '>=3.10.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -22,24 +22,26 @@ workspace:
   - packages/audio_soundpool
   - packages/examples
   - packages/midi_input
+  - packages/midi_messages
   - packages/music_stave
   - packages/musiqwik_font
-  - packages/native_add
   - packages/note_sequence
-  - packages/piano_widget
-  - packages/plugin1
+  - packages/piano_widget/piano_widget
+  - packages/piano_widget/example
   - packages/simple_piano/simple_piano
   - packages/simple_piano/simple_piano_keylistener
   - packages/simple_piano/simple_piano_waterfall
-  - packages/sound_service
-  - packages/sound_service_assets
-  - packages/sound_service_util
+  - packages/sound_service/sound_service
+  - packages/sound_service/sound_service_assets
+  - packages/sound_service/sound_service_util
   - packages/tone_generator/tone_generator
-  - packages/tone_generator/tone_generator/example
+  - packages/tone_generator/example
   - packages/virtual_keyboard_status
-  - packages/virtual_piano
-  - packages2/music_score
-  - packages2/sf2_player
+  - packages/virtual_piano/virtual_piano
+  - packages/virtual_piano/example
+  # I think these two are obsolete, but keeping them until cleanup
+  - packages/music_score
+  - packages/sf2_player
 
 melos:
   repository: https://github.com/tolland/flame_learn_sheet_music
@@ -61,6 +63,9 @@ melos:
     format:
       run: melos exec dart format . --fix
       description: Run `dart format` for all packages.
+    clean:
+      run: melos exec -c 1 -- flutter clean
+      description: Clean all packages
 
 flutter:
   uses-material-design: true

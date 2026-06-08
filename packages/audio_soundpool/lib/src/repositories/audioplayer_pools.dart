@@ -51,6 +51,9 @@ class AudioControllerSoundPool implements IAudioController {
           "packages/sound_service/assets/notes/${Piano88Leethring.pianoNotes[i]!}.mp3";
       int soundId = await rootBundle.load(path).then((ByteData soundData) {
         return pool.load(soundData);
+      }).catchError((error) {
+        _log.severe("Error loading sound for pitch $i: $error");
+        throw error;
       });
       _pitch2SoundIds[0]![i] = soundId;
       _path2soundIds[0]![path] = soundId;

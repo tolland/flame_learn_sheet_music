@@ -5,7 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 
 part '../../generated/src/bloc/simple_piano_bloc.freezed.dart';
+
 part 'simple_piano_event.dart';
+
 part 'simple_piano_state.dart';
 
 /// This is the bloc for the simple piano. It is responsible for
@@ -14,24 +16,19 @@ class SimplePianoBloc extends Bloc<SimplePianoEvent, SimplePianoState> {
   static final _log = Logger('SimplePianoBloc');
 
   SimplePianoBloc() : super(SimplePianoState()) {
-    on<SimplePianoEvent>(
-      (events, emit) async {
-        await events.map(
-          pitchFromExternal: (event) async => await _pitchFromExternal(
-            event,
-            emit,
-          ),
-          keyPanStart: (event) async => await _keyPanStart(event, emit),
-          keyPanEnd: (event) async => await _keyPanEnd(event, emit),
-          keyPanCancel: (event) async => await _keyPanCancel(event, emit),
-          keyMouseEnter: (event) async => await _keyMouseEnter(event, emit),
-          keyMouseExit: (event) async => await _keyMouseExit(event, emit),
-          pianoEnter: (event) async => await _pianoEnter(event, emit),
-          pianoExit: (event) async => await _pianoExit(event, emit),
-        );
-      },
-      transformer: sequential(),
-    );
+    on<SimplePianoEvent>((events, emit) async {
+      await events.map(
+        pitchFromExternal: (event) async =>
+            await _pitchFromExternal(event, emit),
+        keyPanStart: (event) async => await _keyPanStart(event, emit),
+        keyPanEnd: (event) async => await _keyPanEnd(event, emit),
+        keyPanCancel: (event) async => await _keyPanCancel(event, emit),
+        keyMouseEnter: (event) async => await _keyMouseEnter(event, emit),
+        keyMouseExit: (event) async => await _keyMouseExit(event, emit),
+        pianoEnter: (event) async => await _pianoEnter(event, emit),
+        pianoExit: (event) async => await _pianoExit(event, emit),
+      );
+    }, transformer: sequential());
   }
 
   _pitchFromExternal(
@@ -53,7 +50,6 @@ class SimplePianoBloc extends Bloc<SimplePianoEvent, SimplePianoState> {
     SimplePianoKeyMouseEnter event,
     Emitter<SimplePianoState> emit,
   ) {
-
     emit(
       state.copyWith(
         pressedKeys: state.isKeyDown
@@ -71,18 +67,18 @@ class SimplePianoBloc extends Bloc<SimplePianoEvent, SimplePianoState> {
 
   /// this seems to be the only way to detect a slide. i.e. keeping track
   /// of whether the mouse is in contact with the screen
-  _keyMouseExit(
-    SimplePianoKeyMouseExit event,
-    Emitter<SimplePianoState> emit,
-  ) {
-    _log.finer(() =>
-        "_keyMouseExit ${event.number} before isPlaying: ${state.isKeyDown}");
+  _keyMouseExit(SimplePianoKeyMouseExit event, Emitter<SimplePianoState> emit) {
+    _log.finer(
+      () =>
+          "_keyMouseExit ${event.number} before isPlaying: ${state.isKeyDown}",
+    );
 
     //{...originalSet}..remove(itemToRemove);
 
     emit(
       state.copyWith(
-        hovered: state.isKeyDown ? {} : {...state.hovered}..remove(event.number),
+        hovered: state.isKeyDown ? {} : {...state.hovered}
+          ..remove(event.number),
         isKeyDown: state.isKeyDown,
         notesOff: state.isKeyDown ? {event.number} : {},
         notesOn: {},
@@ -130,13 +126,15 @@ class SimplePianoBloc extends Bloc<SimplePianoEvent, SimplePianoState> {
     //           .toList()
     //           .length);
     // }
-//    _log.fine("SimplePianoKeyPanStart(${event.number}) after isPlaying: ${state.isPlaying}");
+    //    _log.fine("SimplePianoKeyPanStart(${event.number}) after isPlaying: ${state.isPlaying}");
   }
 
   /// pan end seems to be triggered on the starting note
   _keyPanEnd(SimplePianoKeyPanEnd event, Emitter<SimplePianoState> emit) {
-    _log.finer(() =>
-        "SimplePianoKeyPanEnd(${event.number}) before isPlaying: ${state.isKeyDown}");
+    _log.finer(
+      () =>
+          "SimplePianoKeyPanEnd(${event.number}) before isPlaying: ${state.isKeyDown}",
+    );
 
     /// we should only get a pan end if we are in the piano
     assert(state.isKeyDown == true);
@@ -178,8 +176,10 @@ class SimplePianoBloc extends Bloc<SimplePianoEvent, SimplePianoState> {
   }
 
   _keyPanCancel(SimplePianoKeyPanCancel event, Emitter<SimplePianoState> emit) {
-    _log.finer(() =>
-        "SimplePianoKey PanCancel((${event.number})) before ${state.isKeyDown}");
+    _log.finer(
+      () =>
+          "SimplePianoKey PanCancel((${event.number})) before ${state.isKeyDown}",
+    );
     // List<SimplePianoKeyStatus> templist = List.from(state.pressedKeys);
     // templist[event.number] = SimplePianoKeyStatus.none;
     // bool isPlaying = templist.contains(SimplePianoKeyStatus.pressed);

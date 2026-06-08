@@ -1,11 +1,14 @@
 import 'dart:async';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sound_service/sound_service.dart';
 
+/// A demo of a file picker that loads a midi file and plays it using the MidiPlayerBloc and SoundServiceBloc.
+/// This is not a complete implementation of a file picker, but it demonstrates how to use the file picker to load a midi file and play it using the MidiPlayerBloc and SoundServiceBloc.
 class FilePickerDemo extends StatefulWidget {
   const FilePickerDemo({super.key});
 
@@ -41,7 +44,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
               MidiPlayerPlay(),
             );
           },
-          child: const Text('play'),
+          child: const Text('play midi'),
         ),
         ElevatedButton(
           onPressed: () {
@@ -49,7 +52,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
               MidiPlayerStop(),
             );
           },
-          child: const Text('stop'),
+          child: const Text('stop midi'),
         ),
         ElevatedButton(
           onPressed: () {
@@ -109,7 +112,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
             //   // User canceled the picker
             // }
           },
-          child: const Text('toggle metronome'),
+          child: const Text('load local midi'),
         ),
       ],
     );
@@ -156,7 +159,10 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
   }
 
   void _logException(String message) {
-    print(message);
+    if (kDebugMode) {
+      print("printing here");
+      // print(message);
+    }
     _scaffoldMessengerKey.currentState?.hideCurrentSnackBar();
     _scaffoldMessengerKey.currentState?.showSnackBar(
       SnackBar(

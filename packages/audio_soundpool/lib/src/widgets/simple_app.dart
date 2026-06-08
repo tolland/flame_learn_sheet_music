@@ -19,7 +19,7 @@ class SimpleApp extends StatefulWidget {
   });
 
   @override
-  _SimpleAppState createState() => _SimpleAppState();
+  State<SimpleApp> createState() => _SimpleAppState();
 }
 
 class _SimpleAppState extends State<SimpleApp> {

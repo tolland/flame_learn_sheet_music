@@ -153,9 +153,15 @@ class _FilePickerMidiState extends State<FilePickerMidi> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  /// simple example of a widget to load a midi file
+                  /// and pass it to the audio backend to play it.
+                  /// demonstrates multi notes
                   FilePickerDemo(),
+                  /// buttons to dump state to console for debugging
                   DebugWidget(),
+                  /// tempo input widget to demonstrate how to change tempo in the midi player
                   TempoInput(),
+
                   Expanded(
                     flex: 1,
                     child: PianoWaterfall.keys49c(

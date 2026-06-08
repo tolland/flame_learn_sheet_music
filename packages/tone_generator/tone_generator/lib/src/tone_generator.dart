@@ -3,8 +3,6 @@ import 'dart:async';
 import 'messages.dart';
 import 'sound_bank.dart';
 
-export 'messages.dart';
-export 'sound_bank.dart';
 
 /// Abstract tone generator — a MIDI-message-driven audio engine.
 ///
@@ -25,10 +23,12 @@ export 'sound_bank.dart';
 /// ```
 abstract class ToneGenerator {
   Future<void> init();
+
   Future<void> dispose();
 
   /// When true, [send] silently drops NoteOn messages and stops all voices.
   bool get muted;
+
   set muted(bool value);
 
   /// Load a [SoundBank] for MIDI program [program] (0 = default).

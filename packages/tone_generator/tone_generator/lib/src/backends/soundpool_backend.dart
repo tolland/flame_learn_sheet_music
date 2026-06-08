@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import '../tone_generator.dart';
+import '../../tone_generator.dart';
 
 /// Soundpool backend placeholder — lower latency on Android/iOS.
 ///

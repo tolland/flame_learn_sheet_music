@@ -1,10 +1,11 @@
 name: virtual_piano_example
+resolution: workspace
 description: "Demo widgetbook product for virtual_piano"
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.2.5 <4.0.0'
+  sdk: '>=3.10.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -12,8 +13,7 @@ dependencies:
     sdk: flutter
   widgetbook: ^3.7.1
   widgetbook_annotation: ^3.1.0
-  virtual_piano:
-    path: ../
+  virtual_piano: any
 
 dev_dependencies:
   flutter_test:

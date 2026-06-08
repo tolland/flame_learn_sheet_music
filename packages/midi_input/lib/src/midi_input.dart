@@ -22,7 +22,7 @@ class _MyMidiInputState extends State<MyMidiInput> {
   @override
   Widget build(BuildContext context) {
 
-    print(MidiCommand().devices);
+    // print(MidiCommand().devices);
 
     return const Placeholder();
   }

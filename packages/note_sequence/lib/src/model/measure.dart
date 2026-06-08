@@ -94,7 +94,7 @@ class Measure extends Validatable {
     }
 
     for (var i = 0; i < rows; i++) {
-      print(array[i].join());
+      // print(array[i].join());
     }
 
 
