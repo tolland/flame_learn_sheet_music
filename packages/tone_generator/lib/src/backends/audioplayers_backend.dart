@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:logging/logging.dart';
@@ -12,15 +11,17 @@ import '../voice_pool.dart';
 /// [ToneGenerator] backed by the `audioplayers` package.
 ///
 /// Works on all Flutter platforms (web, Linux, Windows, Android, iOS).
-/// Loads each note's bytes into RAM once; all [polyphony] player instances
-/// share the same [Uint8List] references — no N×M memory duplication.
 ///
-/// Note release uses an exponential volume fade to avoid audible pops.
+/// Pre-warms a shared [AudioCache] during [loadBank] so that on web the
+/// audio is decoded once into a cached AudioBuffer. Subsequent [play] calls
+/// reuse that buffer — no re-decode, no extra AudioContext per note, no pop.
+///
+/// Note release uses an exponential volume fade to avoid audible transients.
 class AudioplayersBackend extends ToneGenerator {
   static final _log = Logger('AudioplayersBackend');
 
-  // Release envelope: 6 steps × 40 ms = 240 ms, volume halved each step.
-  // Adjust these constants to taste.
+  // Release envelope constants. Adjust to taste.
+  // 6 steps × 40 ms = 240 ms total; volume halved each step.
   static const _releaseSteps = 6;
   static const _releaseStepMs = 40;
   static const _releaseFactor = 0.5;
@@ -30,11 +31,14 @@ class AudioplayersBackend extends ToneGenerator {
   late final VoicePool _pool;
   late final List<AudioPlayer> _players;
 
+  /// Shared cache — all players reference this so decoded data is cached once.
+  final AudioCache _cache = AudioCache(prefix: '');
+
   // program → SoundBank
   final Map<int, SoundBank> _banks = {};
   // channel → active program (default 0)
   final Map<int, int> _programs = {};
-  // voice index → last set volume (needed to start the fade at the right level)
+  // voice index → last set volume (needed to start the release fade correctly)
   final Map<int, double> _voiceVolume = {};
 
   bool _muted = false;
@@ -58,10 +62,11 @@ class AudioplayersBackend extends ToneGenerator {
       (i) => AudioPlayer(playerId: 'tg_$i'),
     );
     for (final p in _players) {
+      p.audioCache = _cache;
       await p.setReleaseMode(ReleaseMode.stop);
-      // BytesSource is incompatible with PlayerMode.lowLatency on Android
-      // (that mode routes through SoundPool which rejects raw bytes).
-      // The SoundpoolBackend is the intended low-latency path for Android/iOS.
+      // BytesSource requires PlayerMode.lowLatency to be OFF on Android
+      // (SoundPool rejects bytes). We use mediaPlayer throughout; the
+      // SoundpoolBackend is the future low-latency path for Android/iOS.
       await p.setPlayerMode(PlayerMode.mediaPlayer);
     }
     _log.fine('ready ($polyphony voices)');
@@ -78,9 +83,24 @@ class AudioplayersBackend extends ToneGenerator {
     }
   }
 
+  /// Pre-warm [_cache] with every note in [bank] then register the bank.
+  ///
+  /// On web, [AudioCache.loadAsset] decodes the audio into an AudioBuffer and
+  /// caches it. Later [play(AssetSource(...))] calls reuse that buffer — no
+  /// re-decode and no extra AudioContext per note.
   @override
   Future<void> loadBank(int program, SoundBank bank) async {
-    if (!bank.isLoaded) await bank.load();
+    _log.fine('Pre-warming cache for "${bank.name}"…');
+    for (final note in bank.notes) {
+      final path = bank.pathFor(note);
+      if (path == null) continue;
+      try {
+        await _cache.loadAsset(path);
+      } catch (e) {
+        _log.warning('Failed to cache $path: $e');
+      }
+    }
+    bank.markLoaded();
     _banks[program] = bank;
     _log.fine('program $program → "${bank.name}"');
   }
@@ -113,20 +133,20 @@ class AudioplayersBackend extends ToneGenerator {
   // ---------------------------------------------------------------------------
 
   void _playNote(int channel, int note, int velocity) {
-    final bytes = _bytesFor(channel, note);
-    if (bytes == null) {
+    final path = _pathFor(channel, note);
+    if (path == null) {
       _log.warning('no sample for note $note ch $channel');
       return;
     }
     final voice = _pool.acquireFor(note, channel);
     final vol = velocity / 127;
     _voiceVolume[voice.index] = vol;
-    final player = _players[voice.index];
-    player.setVolume(vol);
-    player.play(BytesSource(bytes));
+    // Passing volume directly to play() sets it atomically before playback
+    // starts, avoiding any race between setVolume and the audio output.
+    _players[voice.index].play(AssetSource(path), volume: vol);
   }
 
-  /// Trigger an exponential release fade rather than stopping immediately.
+  /// Begin an exponential fade then stop. Fire-and-forget.
   void _stopNote(int channel, int note) {
     final voice = _pool.find(note, channel);
     if (voice == null) return;
@@ -134,7 +154,7 @@ class AudioplayersBackend extends ToneGenerator {
     _fadeOut(voice);
   }
 
-  /// Fire-and-forget exponential fade. Exits early if the voice is stolen
+  /// Exponential release fade. Exits early if the voice is stolen
   /// (generation changes) before the fade completes.
   Future<void> _fadeOut(Voice voice) async {
     final gen = voice.generation;
@@ -150,13 +170,12 @@ class AudioplayersBackend extends ToneGenerator {
 
     if (voice.generation != gen) return;
     await player.stop();
-    // Only mark idle if still our generation (might have been stolen during stop())
     if (voice.generation == gen) voice.release();
   }
 
   void _stopAll(int? channel) {
     for (final voice in _pool.activeIn(channel).toList()) {
-      voice.cancelRelease(); // aborts any in-flight _fadeOut for this voice
+      voice.cancelRelease();
       _players[voice.index].stop();
       voice.release();
     }
@@ -174,8 +193,8 @@ class AudioplayersBackend extends ToneGenerator {
     // CC 64 = sustain — not yet implemented
   }
 
-  Uint8List? _bytesFor(int channel, int note) {
+  String? _pathFor(int channel, int note) {
     final program = _programs[channel] ?? 0;
-    return _banks[program]?.bytesFor(note);
+    return _banks[program]?.pathFor(note);
   }
 }

@@ -1,48 +1,37 @@
-import 'dart:typed_data';
-
-import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 
 /// A set of audio samples keyed by MIDI note number.
 ///
-/// Load once via [load], then query raw bytes with [bytesFor].
-/// Bytes are kept in memory so all voices can reference the same buffer
-/// without re-reading assets.
+/// Stores asset paths only; the consuming backend is responsible for
+/// pre-warming its audio cache (e.g. AudioCache for audioplayers).
 class SoundBank {
   static final _log = Logger('SoundBank');
 
   final String name;
 
-  /// MIDI note → Flutter asset path (e.g. 'packages/sound_service/assets/notes/c1.mp3')
+  /// MIDI note → Flutter asset path
+  /// e.g. 36 → 'packages/sound_service/assets/notes/C.mp3'
   final Map<int, String> _assetPaths;
 
-  final Map<int, Uint8List> _bytes = {};
+  bool _preloaded = false;
 
   SoundBank({
     required Map<int, String> assetPaths,
     this.name = 'unnamed',
   }) : _assetPaths = Map.unmodifiable(assetPaths);
 
-  bool get isLoaded => _bytes.isNotEmpty;
-
+  bool get isLoaded => _preloaded;
   Iterable<int> get notes => _assetPaths.keys;
 
-  /// Returns pre-loaded bytes for [note], or null if not in this bank.
-  Uint8List? bytesFor(int note) => _bytes[note];
+  /// Returns the asset path for [note], or null if not in this bank.
+  String? pathFor(int note) => _assetPaths[note];
 
-  /// Read all asset paths into memory. Safe to call multiple times.
-  Future<void> load() async {
-    if (isLoaded) return;
-    _log.fine('Loading "$name" (${_assetPaths.length} notes)');
-    for (final entry in _assetPaths.entries) {
-      final data = await rootBundle.load(entry.value);
-      _bytes[entry.key] = data.buffer.asUint8List(
-        data.offsetInBytes,
-        data.lengthInBytes,
-      );
-    }
-    _log.fine('"$name" loaded');
+  /// Mark this bank as pre-loaded. Called by the backend after it has
+  /// warmed its audio cache.
+  void markLoaded() {
+    _preloaded = true;
+    _log.fine('"$name" marked loaded');
   }
 
-  void dispose() => _bytes.clear();
+  void dispose() => _preloaded = false;
 }
